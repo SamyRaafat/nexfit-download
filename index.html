@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>تحميل تطبيق NexFit — بوابة العملاء</title>
+<link rel="icon" type="image/png" id="fav" href="https://mwzjxjmvokdeijwnaesk.supabase.co/storage/v1/object/public/product-images/brand/logo_1782869413550.png">
+<link rel="apple-touch-icon" id="favA" href="https://mwzjxjmvokdeijwnaesk.supabase.co/storage/v1/object/public/product-images/brand/logo_1782869413550.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
@@ -139,7 +141,11 @@
     document.getElementById('ver').textContent = ver ? ('الإصدار ' + ver) : 'أحدث إصدار';
     if (msg){ document.getElementById('msgtxt').textContent = msg; document.getElementById('msg').style.display='flex'; }
     if (a){ document.getElementById('qr').src = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(a); document.getElementById('qrBox').style.display='block'; }
-    if (logo){ document.getElementById('logo').innerHTML = '<img src="'+logo+'" alt="NexFit">'; }
+    if (logo){
+      document.getElementById('logo').innerHTML = '<img src="'+logo+'" alt="NexFit">';
+      document.getElementById('fav').href = logo;
+      document.getElementById('favA').href = logo;
+    }
   }
 
   fetch(SB + '/rest/v1/app_config?id=eq.1&select=android_update_url,windows_update_url,latest_version,message,logo_url', {
