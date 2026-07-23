@@ -129,11 +129,42 @@
     a.parentNode.insertBefore(i, a);
   }
 
+  // يولّد أيقونة دائرية بخلفية بيضاء واللوجو بداخلها (عبر canvas) ويضبطها favicon
+  function makeCircularFavicon(logoUrl){
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = function(){
+      try{
+        const S = 128, cv = document.createElement('canvas'); cv.width = cv.height = S;
+        const x = cv.getContext('2d'), r = S/2;
+        // خلفية دائرية بيضاء (قصّ للدائرة فتكون الزوايا شفافة)
+        x.save(); x.beginPath(); x.arc(r, r, r, 0, Math.PI*2); x.clip();
+        x.fillStyle = '#ffffff'; x.fillRect(0, 0, S, S);
+        // احتواء اللوجو داخل ~72% من الدائرة مع الحفاظ على النسبة
+        const box = S*0.72, iw = img.width, ih = img.height, sc = Math.min(box/iw, box/ih);
+        const w = iw*sc, h = ih*sc;
+        x.drawImage(img, (S-w)/2, (S-h)/2, w, h);
+        x.restore();
+        const url = cv.toDataURL('image/png');
+        document.getElementById('fav').href = url;
+        document.getElementById('favA').href = url;
+      }catch(_){ /* تعذّر (CORS) — تبقى الأيقونة الافتراضية */
+        document.getElementById('fav').href = logoUrl;
+        document.getElementById('favA').href = logoUrl;
+      }
+    };
+    img.onerror = function(){ /* أبقِ الافتراضي */ };
+    img.src = logoUrl;
+  }
+
   const SB = 'https://mwzjxjmvokdeijwnaesk.supabase.co';
   const KEY = 'sb_publishable_yAMh2iapZYTYwxycO9FSPA_cWNuuEP2';
   // روابط احتياطية (تعمل حتى لو تعذّر قراءة الإعدادات)
   const FB_A = SB + '/storage/v1/object/public/product-images/releases/field_1783437329921.apk';
   const FB_W = SB + '/storage/v1/object/public/product-images/releases/windows_1783437353183.zip';
+  // اللوجو الافتراضي (يُستبدل حيّاً من app_config عند توفّره)
+  const FB_LOGO = SB + '/storage/v1/object/public/product-images/brand/logo_1782869413550.png';
+  makeCircularFavicon(FB_LOGO);
 
   function apply(a, w, ver, msg, logo){
     document.getElementById('aBtn').href = a || FB_A;
@@ -143,8 +174,7 @@
     if (a){ document.getElementById('qr').src = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(a); document.getElementById('qrBox').style.display='block'; }
     if (logo){
       document.getElementById('logo').innerHTML = '<img src="'+logo+'" alt="NexFit">';
-      document.getElementById('fav').href = logo;
-      document.getElementById('favA').href = logo;
+      makeCircularFavicon(logo);
     }
   }
 
