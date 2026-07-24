@@ -201,39 +201,31 @@
   ov.addEventListener('click', e => { if(e.target===ov) closeGate(); });
   pw.addEventListener('keydown', e => { if(e.key==='Enter') go.click(); });
 
-  async function sha256Hex(s){
-    const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
-    return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
-  }
-
   go.addEventListener('click', async () => {
     const name=nm.value.trim(), pass=pw.value.trim();
     errEl.classList.remove('on');
     if(!name){ showErr('من فضلك أدخل اسمك.'); return; }
     if(!pass){ showErr('من فضلك أدخل كلمة السر.'); return; }
-    if(!window.crypto || !crypto.subtle){ showErr('المتصفّح لا يدعم التحقّق. استخدم متصفّحاً حديثاً عبر https.'); return; }
 
     go.disabled=true; go.textContent='جارٍ التحقّق…';
     try{
-      const h = await sha256Hex(pass);
-      const url = SB + '/storage/v1/object/public/product-images/releases/erp_' + h.slice(0,16) + '.zip';
-      let ok = true;
-      try { const r = await fetch(url, {method:'HEAD'}); ok = r.ok; }
-      catch(_) { ok = true; } // تعذّر الفحص المسبق (شبكة/CORS) — نُكمل ونترك المتصفّح يحاول
-      if(!ok){ showErr('الاسم أو كلمة السر غير صحيحة. راجع القائد.'); return; }
-
-      // سجل التحميل (اختياري — يعمل عند وجود جدول erp_downloads، وإلا يُتجاهل بصمت)
+      // التحقّق يتم على الخادم: تُعيد الدالة اسم الملف السرّي عند الصحّة فقط،
+      // وتسجّل التحميل. الصفحة لا تعرف الرابط ولا الـhash إطلاقاً.
+      let obj = null;
       try{
-        await fetch(SB + '/rest/v1/erp_downloads', {
+        const r = await fetch(SB + '/rest/v1/rpc/erp_gate_check', {
           method:'POST',
-          headers:{ apikey:KEY, Authorization:'Bearer '+KEY,
-                    'Content-Type':'application/json', Prefer:'return=minimal' },
-          body: JSON.stringify({ name: name })
+          headers:{ apikey:KEY, Authorization:'Bearer '+KEY, 'Content-Type':'application/json' },
+          body: JSON.stringify({ p_name: name, p_pass: pass })
         });
-      }catch(_){ /* السجل غير مفعّل — لا يمنع التحميل */ }
+        if(r.ok) obj = await r.json();
+      }catch(_){ showErr('تعذّر الاتصال. تحقّق من الإنترنت وحاول مجدداً.'); return; }
+
+      if(!obj){ showErr('الاسم أو كلمة السر غير صحيحة. راجع القائد.'); return; }
 
       closeGate();
-      window.location.href = url;
+      window.location.href =
+        SB + '/storage/v1/object/public/product-images/releases/' + obj;
     } finally {
       go.disabled=false; go.textContent='تحميل';
     }
