@@ -116,6 +116,11 @@
       transition: transform 0.2s, box-shadow 0.2s;
       text-decoration: none;
       color: inherit;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      font-family: inherit;
+      text-align: right;
     }
 
     .download-card:hover {
@@ -141,6 +146,20 @@
       font-size: 20px;
       color: var(--muted);
     }
+
+    .copy-btn {
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      margin-top: 8px;
+      font-family: inherit;
+    }
+
+    .copy-btn:hover { background: var(--primary); color: white; }
 
     .steps {
       max-width: 700px;
@@ -220,6 +239,21 @@
 
     .wa-float:hover { transform: scale(1.1); }
 
+    .toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 200;
+      font-weight: 600;
+    }
+
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -244,6 +278,8 @@
 </head>
 <body>
 
+  <div class="toast" id="toast">تم النسخ!</div>
+
   <div class="hero">
     <div class="logo">⚡</div>
     <h1>NexFit</h1>
@@ -264,27 +300,32 @@
   </div>
 
   <div class="downloads">
-    <a href="https://mwzjxjmvokdeijwnaesk.supabase.co/storage/v1/object/public/product-images/releases/field_1783437329921.apk" class="download-card" onclick="incrementCounter()">
+    <!-- Android -->
+    <button class="download-card" onclick="forceDownload('https://mwzjxjmvokdeijwnaesk.supabase.co/storage/v1/object/public/product-images/releases/field_1783437329921.apk?download=NexFit-Android.apk', 'NexFit-Android.apk')">
       <div class="icon-box android">📱</div>
-      <div>
+      <div style="flex:1">
         <h3>تحميل لأندرويد (APK)</h3>
         <p>ثبّته يدوياً — قد يطلب السماح بمصدر غير معروف</p>
+        <button class="copy-btn" onclick="event.stopPropagation(); copyLink('https://mwzjxjmvokdeijwnaesk.supabase.co/storage/v1/object/public/product-images/releases/field_1783437329921.apk?download=NexFit-Android.apk')">📋 نسخ الرابط</button>
       </div>
       <div class="arrow">←</div>
-    </a>
+    </button>
 
-    <a href="https://mwzjxjmvokdeijwnaesk.supabase.co/storage/v1/object/public/product-images/releases/windows_1783437353183.zip" class="download-card" onclick="incrementCounter()">
+    <!-- Windows -->
+    <button class="download-card" onclick="forceDownload('https://mwzjxjmvokdeijwnaesk.supabase.co/storage/v1/object/public/product-images/releases/windows_1783437353183.zip?download=NexFit-Windows.zip', 'NexFit-Windows.zip')">
       <div class="icon-box windows">💻</div>
-      <div>
+      <div style="flex:1">
         <h3>تحميل لويندوز (ZIP)</h3>
         <p>فُكّ الضغط ثم شغّل NexFit.exe</p>
+        <button class="copy-btn" onclick="event.stopPropagation(); copyLink('https://mwzjxjmvokdeijwnaesk.supabase.co/storage/v1/object/public/product-images/releases/windows_1783437353183.zip?download=NexFit-Windows.zip')">📋 نسخ الرابط</button>
       </div>
       <div class="arrow">←</div>
-    </a>
+    </button>
 
-    <a href="https://nexfit-portal.web.app" class="download-card">
+    <!-- iOS Web -->
+    <a href="https://nexfit-portal.web.app" class="download-card" style="display:flex">
       <div class="icon-box ios">🌐</div>
-      <div>
+      <div style="flex:1">
         <h3>افتح على الآيفون (نسخة الويب)</h3>
         <p>يعمل من المتصفّح مباشرة — أضفه للشاشة الرئيسية</p>
       </div>
@@ -338,6 +379,65 @@
   </a>
 
   <script>
+    // ========== التحميل القسري ==========
+    async function forceDownload(url, filename) {
+      incrementCounter();
+
+      // المحاولة الأولى: فتح في تاب جديد مع ?download (Supabase)
+      const newWindow = window.open(url, '_blank');
+      if (newWindow) return;
+
+      // المحاولة الثانية: fetch + blob (للملفات الصغيرة < 100MB)
+      try {
+        const btn = event.currentTarget;
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<div style="text-align:center;width:100%">⏳ جاري التحميل...</div>';
+
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Network error');
+
+        const blob = await response.blob();
+        const blobUrl = window.URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(blobUrl);
+
+        btn.innerHTML = originalHTML;
+      } catch (err) {
+        alert('فشل التحميل. اضغط "نسخ الرابط" والصقه في متصفح جديد.');
+      }
+    }
+
+    // ========== نسخ الرابط ==========
+    async function copyLink(url) {
+      try {
+        await navigator.clipboard.writeText(url);
+        showToast('تم نسخ الرابط!');
+      } catch (e) {
+        // Fallback for older browsers
+        const ta = document.createElement('textarea');
+        ta.value = url;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('تم نسخ الرابط!');
+      }
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => t.style.display = 'none', 2500);
+    }
+
+    // ========== العداد ==========
     const NAMESPACE = "nexfit-download";
     const KEY = "downloads";
 
