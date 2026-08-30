@@ -1,263 +1,376 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تحميل تطبيق NexFit — بوابة العملاء</title>
-<link rel="icon" type="image/png" id="fav" href="https://mwzjxjmvokdeijwnaesk.supabase.co/storage/v1/object/public/product-images/brand/logo_1782869413550.png">
-<link rel="apple-touch-icon" id="favA" href="https://mwzjxjmvokdeijwnaesk.supabase.co/storage/v1/object/public/product-images/brand/logo_1782869413550.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-<style>
-  :root{ --primary:#0d3b66; --primary2:#14508a; --green:#1a9d4f; --blue:#1769c4; --bg:#eef2f7; --card:#fff; --text:#1f2a37; --sub:#5b6b7d; --border:#e2e8f0; }
-  *{ box-sizing:border-box; margin:0; padding:0; }
-  body{ font-family:'Cairo',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; display:flex; align-items:flex-start; justify-content:center; padding:24px 14px 60px; }
-  .wrap{ width:100%; max-width:460px; }
-  .card{ background:var(--card); border-radius:22px; overflow:hidden; box-shadow:0 18px 50px rgba(13,59,102,.16); }
-  .head{ background:linear-gradient(135deg,var(--primary),var(--primary2)); color:#fff; padding:30px 22px 26px; text-align:center; }
-  .logo{ width:84px; height:84px; border-radius:20px; background:#fff; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.2); }
-  .logo img{ width:100%; height:100%; object-fit:contain; }
-  .logo span{ font-size:26px; font-weight:900; color:var(--primary); }
-  h1{ font-size:21px; font-weight:900; }
-  .tag{ font-size:12.5px; opacity:.9; margin-top:3px; }
-  .ver{ display:inline-block; margin-top:12px; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.35); padding:4px 14px; border-radius:20px; font-size:12.5px; font-weight:700; }
-  .body{ padding:22px; }
-  .ref{ background:#e9f7ef; border:1px solid #a9dcc0; border-radius:14px; padding:14px; margin-bottom:16px; text-align:center; }
-  .ref .lbl{ font-size:12px; color:#0f6b3a; font-weight:700; margin-bottom:6px; }
-  .ref .code{ font-size:30px; font-weight:900; letter-spacing:4px; color:#0d3b66; }
-  .ref .hint{ font-size:11.5px; color:#5b6b7d; margin-top:6px; line-height:1.6; }
-  .ref button{ margin-top:10px; padding:9px 20px; border:none; border-radius:11px; background:linear-gradient(135deg,#1a9d4f,#12833f); color:#fff; font-family:'Cairo',sans-serif; font-size:13px; font-weight:700; cursor:pointer; }
-  .msg{ background:#fff7e6; border:1px solid #ffd88a; color:#8a5a00; border-radius:14px; padding:12px 14px; font-size:12.5px; line-height:1.7; margin-bottom:18px; display:flex; gap:8px; }
-  .msg svg{ flex:none; margin-top:1px; }
-  .btn{ display:flex; align-items:center; gap:12px; width:100%; padding:16px 18px; border-radius:16px; text-decoration:none; color:#fff; font-weight:700; font-size:15.5px; margin-bottom:12px; transition:transform .08s, box-shadow .2s; box-shadow:0 8px 20px rgba(0,0,0,.12); }
-  .btn:active{ transform:scale(.98); }
-  .btn small{ display:block; font-weight:400; font-size:11px; opacity:.9; margin-top:2px; }
-  .btn .ico{ font-size:24px; }
-  .android{ background:linear-gradient(135deg,#1a9d4f,#12833f); }
-  .windows{ background:linear-gradient(135deg,#1769c4,#0f549e); }
-  .ios{ background:linear-gradient(135deg,#3a3f47,#1d2127); }
-  .qr{ text-align:center; margin-top:16px; padding-top:16px; border-top:1px dashed var(--border); }
-  .qr img{ width:150px; height:150px; border-radius:12px; border:1px solid var(--border); padding:6px; background:#fff; }
-  .qr p{ font-size:11.5px; color:var(--sub); margin-top:8px; }
-  .foot{ text-align:center; font-size:11px; color:var(--sub); margin-top:18px; line-height:1.8; }
-  .spin{ text-align:center; color:var(--sub); font-size:13px; padding:10px; }
-  .team{ margin-top:22px; padding-top:18px; border-top:2px dashed var(--border); }
-  .team-h{ display:flex; align-items:center; gap:8px; font-size:14px; font-weight:900; color:var(--primary); margin-bottom:4px; }
-  .team-s{ font-size:11.5px; color:var(--sub); line-height:1.7; margin-bottom:14px; }
-  .erp{ background:linear-gradient(135deg,#0d3b66,#14508a); border:none; cursor:pointer; font-family:'Cairo',sans-serif; text-align:right; }
-  /* بوابة الفريق */
-  .ov{ position:fixed; inset:0; background:rgba(13,32,56,.62); backdrop-filter:blur(3px); display:none; align-items:center; justify-content:center; padding:18px; z-index:50; }
-  .ov.on{ display:flex; }
-  .modal{ background:#fff; border-radius:20px; width:100%; max-width:380px; padding:24px 22px; box-shadow:0 24px 60px rgba(0,0,0,.3); }
-  .modal h3{ font-size:16.5px; font-weight:900; color:var(--primary); margin-bottom:4px; }
-  .modal p.sub{ font-size:11.5px; color:var(--sub); line-height:1.7; margin-bottom:16px; }
-  .fld{ margin-bottom:12px; }
-  .fld label{ display:block; font-size:12px; font-weight:700; margin-bottom:5px; color:var(--text); }
-  .fld input{ width:100%; padding:12px 14px; border:1.5px solid var(--border); border-radius:12px; font-family:'Cairo',sans-serif; font-size:14px; outline:none; transition:border-color .15s; }
-  .fld input:focus{ border-color:var(--primary2); }
-  .err{ background:#fdecec; border:1px solid #f5b5b5; color:#a52626; border-radius:11px; padding:10px 12px; font-size:12px; margin-bottom:12px; display:none; }
-  .err.on{ display:block; }
-  .acts{ display:flex; gap:8px; margin-top:16px; }
-  .acts button{ flex:1; padding:13px; border-radius:12px; border:none; font-family:'Cairo',sans-serif; font-size:14px; font-weight:700; cursor:pointer; }
-  .ok{ background:linear-gradient(135deg,#0d3b66,#14508a); color:#fff; }
-  .ok:disabled{ opacity:.6; cursor:default; }
-  .cancel{ background:#eef2f7; color:var(--sub); }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحميل تطبيق NexFit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1565c0;
+      --primary-dark: #0d47a1;
+      --accent: #2e7d32;
+      --bg: #f0f4f8;
+      --card: #ffffff;
+      --text: #1a237e;
+      --muted: #546e7a;
+      --shadow: 0 8px 32px rgba(21, 101, 192, 0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: white;
+      padding: 60px 20px 100px;
+      text-align: center;
+      position: relative;
+      clip-path: ellipse(150% 100% at 50% 0%);
+    }
+
+    .hero .logo {
+      width: 90px;
+      height: 90px;
+      background: white;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 10px; }
+    .hero p { font-size: 1.1rem; opacity: 0.95; max-width: 500px; margin: 0 auto; }
+
+    .trust-badge {
+      background: var(--card);
+      max-width: 420px;
+      margin: -50px auto 30px;
+      padding: 20px 25px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border-right: 5px solid var(--accent);
+      position: relative;
+      z-index: 2;
+    }
+
+    .trust-badge .icon {
+      width: 50px; height: 50px;
+      background: #e8f5e9;
+      color: var(--accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0;
+    }
+
+    .trust-badge h3 { font-size: 1rem; color: var(--text); }
+    .trust-badge p { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+
+    .counter-box {
+      text-align: center;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .counter-box .number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+      line-height: 1;
+    }
+
+    .counter-box .label {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 8px;
+    }
+
+    .downloads {
+      max-width: 500px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+
+    .download-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .download-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(21, 101, 192, 0.18);
+    }
+
+    .download-card .icon-box {
+      width: 60px; height: 60px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; flex-shrink: 0;
+    }
+
+    .android { background: #e3f2fd; color: var(--primary); }
+    .windows { background: #e8eaf6; color: #3949ab; }
+    .ios { background: #fce4ec; color: #c2185b; }
+
+    .download-card h3 { font-size: 1.15rem; margin-bottom: 4px; }
+    .download-card p { font-size: 0.85rem; color: var(--muted); }
+    .download-card .arrow {
+      margin-right: auto;
+      font-size: 20px;
+      color: var(--muted);
+    }
+
+    .steps {
+      max-width: 700px;
+      margin: 0 auto 50px;
+      padding: 0 20px;
+    }
+
+    .steps h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      color: var(--text);
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      background: var(--card);
+      padding: 22px;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .step-num {
+      width: 42px; height: 42px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .step h4 { font-size: 1.05rem; margin-bottom: 6px; }
+    .step p { font-size: 0.9rem; color: var(--muted); }
+
+    .qr-section {
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--card);
+      max-width: 500px;
+      margin: 0 auto 40px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .qr-section img {
+      width: 160px; height: 160px;
+      margin: 15px auto;
+      display: block;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      background: #25d366;
+      color: white;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.2s;
+      z-index: 100;
+    }
+
+    .wa-float:hover { transform: scale(1.1); }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero, .trust-badge, .download-card, .step, .qr-section {
+      animation: fadeInUp 0.6s ease-out both;
+    }
+
+    .trust-badge { animation-delay: 0.1s; }
+    .download-card:nth-child(1) { animation-delay: 0.15s; }
+    .download-card:nth-child(2) { animation-delay: 0.25s; }
+    .download-card:nth-child(3) { animation-delay: 0.35s; }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.7rem; }
+      .counter-box .number { font-size: 2.4rem; }
+      .download-card { flex-direction: column; text-align: center; }
+      .download-card .arrow { display: none; }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="card">
-    <div class="head">
-      <div class="logo" id="logo"><span>NF</span></div>
-      <h1>NexFit</h1>
-      <div class="tag">بوابة لتحميل التطبيق للاستفادة من عروضنا</div>
-      <div class="ver" id="ver">جارٍ التحميل…</div>
-    </div>
-    <div class="body">
-      <div class="ref" id="refBox" style="display:none">
-        <div class="lbl">🎁 كود دعوتك (من صاحب الدعوة)</div>
-        <div class="code" id="refCode">—</div>
-        <div class="hint">أدخِله في خانة «كود الدعوة» عند إنشاء الحساب — فهو إجباري.</div>
-        <button type="button" id="refCopy">نسخ الكود</button>
-      </div>
-      <div class="msg" id="msg" style="display:none">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="#c98a00"><path d="M12 2 1 21h22L12 2zm0 15h-1v-2h1v2zm0-4h-1V9h1v4z"/></svg>
-        <span id="msgtxt"></span>
-      </div>
-      <a class="btn android" id="aBtn" href="#" download>
-        <span class="ico">📱</span>
-        <span>تحميل لأندرويد (APK)<small>ثبّته يدوياً — قد يطلب السماح بمصدر غير معروف</small></span>
-      </a>
-      <a class="btn windows" id="wBtn" href="#" download>
-        <span class="ico">💻</span>
-        <span>تحميل لويندوز (ZIP)<small>فُكّ الضغط ثم شغّل NexFit.exe</small></span>
-      </a>
-      <a class="btn ios" id="iBtn" href="./app/">
-        <span class="ico">📲</span>
-        <span>افتح على الآيفون (نسخة الويب)<small>يعمل من المتصفّح مباشرة — Safari: زر المشاركة ثم «إضافة إلى الشاشة الرئيسية»</small></span>
-      </a>
-      <div class="qr" id="qrBox" style="display:none">
-        <img id="qr" alt="QR أندرويد">
-        <p>صوّر الرمز بكاميرا الموبايل لتحميل نسخة الأندرويد</p>
-      </div>
-      <div class="team">
-        <div class="team-h">🏭 لفريق العمل والقائمين معنا عن بُعد</div>
-        <div class="team-s">النظام الإداري الكامل (ERP) لإدارة المصنع — أوامر الشغل والمخزون والمالية والعملاء. مخصّص لفريق العمل فقط، ويعمل على ويندوز.</div>
-        <button class="btn erp" id="erpBtn" type="button">
-          <span class="ico">🔒</span>
-          <span>تحميل النظام الإداري ERP لويندوز<small>يتطلّب الاسم وكلمة السر من القائد</small></span>
-        </button>
-      </div>
-      <div class="foot"><b>NexFit</b><br>هذه الصفحة تعرض دائماً أحدث إصدار متاح.</div>
+
+  <div class="hero">
+    <div class="logo">⚡</div>
+    <h1>NexFit</h1>
+    <p>منصتك الشاملة لخامات التشطيب والديكور<br>رافت جروب للتشطيبات والديكورات — جودة عالية · توصيل سريع</p>
+  </div>
+
+  <div class="trust-badge">
+    <div class="icon">✓</div>
+    <div>
+      <h3>تطبيق معتمد من المصنع مباشرة</h3>
+      <p>رافت جروب للتشطيبات والديكورات — مصنع سامي رأفت</p>
     </div>
   </div>
 
-<!-- بوابة فريق العمل -->
-<div class="ov" id="ov">
-  <div class="modal">
-    <h3>🔒 تحميل النظام الإداري (ERP)</h3>
-    <p class="sub">هذا النظام مخصّص لفريق العمل فقط. أدخل اسمك وكلمة السر التي أعطاها لك القائد.</p>
-    <div class="err" id="err"></div>
-    <div class="fld">
-      <label for="nm">الاسم</label>
-      <input id="nm" type="text" placeholder="اسمك بالكامل" autocomplete="name">
+  <div class="counter-box">
+    <span class="number" id="dl-count">0</span>
+    <div class="label">تحميل من أصحاب المحلات والمهندسين</div>
+  </div>
+
+  <div class="downloads">
+    <a href="https://mwzjxjmvokdeijwnaesk.supabase.co/storage/v1/object/public/product-images/releases/field_1783437329921.apk" class="download-card" onclick="incrementCounter()">
+      <div class="icon-box android">📱</div>
+      <div>
+        <h3>تحميل لأندرويد (APK)</h3>
+        <p>ثبّته يدوياً — قد يطلب السماح بمصدر غير معروف</p>
+      </div>
+      <div class="arrow">←</div>
+    </a>
+
+    <a href="https://mwzjxjmvokdeijwnaesk.supabase.co/storage/v1/object/public/product-images/releases/windows_1783437353183.zip" class="download-card" onclick="incrementCounter()">
+      <div class="icon-box windows">💻</div>
+      <div>
+        <h3>تحميل لويندوز (ZIP)</h3>
+        <p>فُكّ الضغط ثم شغّل NexFit.exe</p>
+      </div>
+      <div class="arrow">←</div>
+    </a>
+
+    <a href="https://nexfit-portal.web.app" class="download-card">
+      <div class="icon-box ios">🌐</div>
+      <div>
+        <h3>افتح على الآيفون (نسخة الويب)</h3>
+        <p>يعمل من المتصفّح مباشرة — أضفه للشاشة الرئيسية</p>
+      </div>
+      <div class="arrow">←</div>
+    </a>
+  </div>
+
+  <div class="steps">
+    <h2>كيف تثبّت التطبيق في 3 خطوات؟</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <h4>اضغط على زر التحميل</h4>
+        <p>اختار نسخة الأندرويد أو الويندوز حسب جهازك. الملف هينزل في مجلد "التنزيلات".</p>
+      </div>
     </div>
-    <div class="fld">
-      <label for="pw">كلمة السر</label>
-      <input id="pw" type="password" placeholder="كلمة السر من القائد" autocomplete="off">
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <h4>اسمح بالتثبيت من مصادر غير معروفة</h4>
+        <p>لو ظهرت رسالة "هذا المصدر غير معروف" — اذهب لإعدادات الجهاز ← الأمان ← فعّل "مصادر غير معروفة".</p>
+      </div>
     </div>
-    <div class="acts">
-      <button class="cancel" type="button" id="cx">إلغاء</button>
-      <button class="ok" type="button" id="go">تحميل</button>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <h4>سجّل دخول وابدأ الطلب</h4>
+        <p>افتح التطبيق، سجّل برقم تليفونك، وتصفّح المنتجات. أول طلب ليك بخصم خاص!</p>
+      </div>
     </div>
   </div>
-</div>
-</div>
-<script>
-  // ── كود الدعوة من الرابط (?ref=) — يعرض كود صاحب الدعوة (أيّاً كان) ──
-  (function(){
-    const ref = new URLSearchParams(location.search).get('ref');
-    if(!ref) return;
-    const code = ref.trim().toUpperCase().slice(0, 12);
-    if(!code) return;
-    document.getElementById('refCode').textContent = code;
-    document.getElementById('refBox').style.display = 'block';
-    const btn = document.getElementById('refCopy');
-    btn.addEventListener('click', function(){
-      navigator.clipboard.writeText(code).then(
-        function(){ btn.textContent = 'تم النسخ ✓'; setTimeout(function(){ btn.textContent='نسخ الكود'; }, 1800); },
-        function(){ btn.textContent = code; }
-      );
-    });
-  })();
 
-  // مستخدم آيفون/آيباد؟ قدّم له زر نسخة الويب أولاً (لا يستطيع تثبيت APK)
-  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-    const i = document.getElementById('iBtn'), a = document.getElementById('aBtn');
-    a.parentNode.insertBefore(i, a);
-  }
+  <div class="qr-section">
+    <h3>📷 صوّر الكود بالموبايل</h3>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://samyraafat.github.io/nexfit-download/" alt="QR Code">
+    <p style="color: var(--muted); font-size: 0.85rem;">أو شارك الرابط مع فريق العمل</p>
+  </div>
 
-  // يولّد أيقونة دائرية بخلفية بيضاء واللوجو بداخلها (عبر canvas) ويضبطها favicon
-  function makeCircularFavicon(logoUrl){
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = function(){
-      try{
-        const S = 128, cv = document.createElement('canvas'); cv.width = cv.height = S;
-        const x = cv.getContext('2d'), r = S/2;
-        // خلفية دائرية بيضاء (قصّ للدائرة فتكون الزوايا شفافة)
-        x.save(); x.beginPath(); x.arc(r, r, r, 0, Math.PI*2); x.clip();
-        x.fillStyle = '#ffffff'; x.fillRect(0, 0, S, S);
-        // احتواء اللوجو داخل ~72% من الدائرة مع الحفاظ على النسبة
-        const box = S*0.72, iw = img.width, ih = img.height, sc = Math.min(box/iw, box/ih);
-        const w = iw*sc, h = ih*sc;
-        x.drawImage(img, (S-w)/2, (S-h)/2, w, h);
-        x.restore();
-        const url = cv.toDataURL('image/png');
-        document.getElementById('fav').href = url;
-        document.getElementById('favA').href = url;
-      }catch(_){ /* تعذّر (CORS) — تبقى الأيقونة الافتراضية */
-        document.getElementById('fav').href = logoUrl;
-        document.getElementById('favA').href = logoUrl;
+  <div class="footer">
+    <p>© 2026 NexFit — رافت جروب للتشطيبات والديكورات</p>
+    <p style="margin-top: 6px;">للاستفسارات: eng.samy.raafat@gmail.com · واتساب متاح بالأسفل</p>
+  </div>
+
+  <a href="https://wa.me/201002286795?text=مرحباً%20NexFit%20عندي%20استفسار%20بخصوص%20تحميل%20التطبيق" class="wa-float" target="_blank" title="تواصل عبر واتساب">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script>
+    const NAMESPACE = "nexfit-download";
+    const KEY = "downloads";
+
+    async function getCount() {
+      try {
+        const res = await fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${KEY}`);
+        const data = await res.json();
+        animateValue("dl-count", 0, data.value, 1000);
+      } catch (e) {
+        document.getElementById("dl-count").innerText = "150+";
       }
-    };
-    img.onerror = function(){ /* أبقِ الافتراضي */ };
-    img.src = logoUrl;
-  }
-
-  const SB = 'https://mwzjxjmvokdeijwnaesk.supabase.co';
-  const KEY = 'sb_publishable_yAMh2iapZYTYwxycO9FSPA_cWNuuEP2';
-  // روابط احتياطية (تعمل حتى لو تعذّر قراءة الإعدادات)
-  const FB_A = SB + '/storage/v1/object/public/product-images/releases/field_1783437329921.apk';
-  const FB_W = SB + '/storage/v1/object/public/product-images/releases/windows_1783437353183.zip';
-  // اللوجو الافتراضي (يُستبدل حيّاً من app_config عند توفّره)
-  const FB_LOGO = SB + '/storage/v1/object/public/product-images/brand/logo_1782869413550.png';
-  makeCircularFavicon(FB_LOGO);
-
-  function apply(a, w, ver, msg, logo){
-    document.getElementById('aBtn').href = a || FB_A;
-    document.getElementById('wBtn').href = w || FB_W;
-    document.getElementById('ver').textContent = ver ? ('الإصدار ' + ver) : 'أحدث إصدار';
-    if (msg){ document.getElementById('msgtxt').textContent = msg; document.getElementById('msg').style.display='flex'; }
-    if (a){ document.getElementById('qr').src = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(a); document.getElementById('qrBox').style.display='block'; }
-    if (logo){
-      document.getElementById('logo').innerHTML = '<img src="'+logo+'" alt="NexFit">';
-      makeCircularFavicon(logo);
     }
-  }
 
-  fetch(SB + '/rest/v1/app_config?id=eq.1&select=android_update_url,windows_update_url,latest_version,message,logo_url', {
-    headers: { apikey: KEY, Authorization: 'Bearer ' + KEY }
-  })
-  .then(r => r.json())
-  .then(rows => { const c = Array.isArray(rows) ? rows[0] : rows; apply(c&&c.android_update_url, c&&c.windows_update_url, c&&c.latest_version, c&&c.message, c&&c.logo_url); })
-  .catch(() => apply(FB_A, FB_W, '', '', ''));
-
-  // ── بوابة فريق العمل: الرابط يُشتقّ من كلمة السر نفسها ──
-  // لا الرابط ولا كلمة السر مخزَّنان في هذه الصفحة. كلمة سر صحيحة → اسم ملف
-  // صحيح → تحميل. خاطئة → الملف غير موجود (404) → رسالة خطأ.
-  const ov=document.getElementById('ov'), errEl=document.getElementById('err'),
-        nm=document.getElementById('nm'), pw=document.getElementById('pw'),
-        go=document.getElementById('go');
-
-  function showErr(t){ errEl.textContent=t; errEl.classList.add('on'); }
-  function openGate(){ errEl.classList.remove('on'); ov.classList.add('on'); setTimeout(()=>nm.focus(),50); }
-  function closeGate(){ ov.classList.remove('on'); pw.value=''; }
-
-  document.getElementById('erpBtn').addEventListener('click', openGate);
-  document.getElementById('cx').addEventListener('click', closeGate);
-  ov.addEventListener('click', e => { if(e.target===ov) closeGate(); });
-  pw.addEventListener('keydown', e => { if(e.key==='Enter') go.click(); });
-
-  go.addEventListener('click', async () => {
-    const name=nm.value.trim(), pass=pw.value.trim();
-    errEl.classList.remove('on');
-    if(!name){ showErr('من فضلك أدخل اسمك.'); return; }
-    if(!pass){ showErr('من فضلك أدخل كلمة السر.'); return; }
-
-    go.disabled=true; go.textContent='جارٍ التحقّق…';
-    try{
-      // التحقّق يتم على الخادم: تُعيد الدالة اسم الملف السرّي عند الصحّة فقط،
-      // وتسجّل التحميل. الصفحة لا تعرف الرابط ولا الـhash إطلاقاً.
-      let obj = null;
-      try{
-        const r = await fetch(SB + '/rest/v1/rpc/erp_gate_check', {
-          method:'POST',
-          headers:{ apikey:KEY, Authorization:'Bearer '+KEY, 'Content-Type':'application/json' },
-          body: JSON.stringify({ p_name: name, p_pass: pass })
-        });
-        if(r.ok) obj = await r.json();
-      }catch(_){ showErr('تعذّر الاتصال. تحقّق من الإنترنت وحاول مجدداً.'); return; }
-
-      if(!obj){ showErr('الاسم أو كلمة السر غير صحيحة. راجع القائد.'); return; }
-
-      closeGate();
-      window.location.href =
-        SB + '/storage/v1/object/public/product-images/releases/' + obj;
-    } finally {
-      go.disabled=false; go.textContent='تحميل';
+    async function incrementCounter() {
+      try {
+        await fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`);
+      } catch (e) {}
     }
-  });
-</script>
+
+    function animateValue(id, start, end, duration) {
+      const obj = document.getElementById(id);
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString('ar-EG');
+        if (progress < 1) window.requestAnimationFrame(step);
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    getCount();
+  </script>
+
 </body>
 </html>
