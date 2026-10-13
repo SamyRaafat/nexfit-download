@@ -361,12 +361,10 @@
     const FB_W = SB + '/storage/v1/object/public/product-images/releases/windows_1783437353183.zip';
     const FB_LOGO = SB + '/storage/v1/object/public/product-images/brand/logo_1782869413550.png';
 
-    // ── كود الدعوة من الرابط (?ref=) — يعرض كود صاحب الدعوة أيّاً كان ──
+    // ── كود الدعوة: كود صاحب الدعوة من الرابط (?ref=)، وإلا كود القائد 1982 ──
     (function(){
       const ref = new URLSearchParams(location.search).get('ref');
-      if (!ref) return;
-      const code = ref.trim().toUpperCase().slice(0, 12);
-      if (!code) return;
+      const code = (ref ? ref.trim().toUpperCase().slice(0, 12) : '') || '1982';
       document.getElementById('refCode').textContent = code;
       document.getElementById('refBox').style.display = 'block';
       const btn = document.getElementById('refCopy');
