@@ -34,137 +34,154 @@
     .hero {
       background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
       color: white;
-      padding: 60px 20px 100px;
+      padding: 56px 20px 90px;
       text-align: center;
       position: relative;
       clip-path: ellipse(150% 100% at 50% 0%);
     }
     .hero .logo {
-      width: 90px; height: 90px;
+      width: 88px; height: 88px;
       background: white; border-radius: 50%;
-      margin: 0 auto 20px;
+      margin: 0 auto 18px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 32px; font-weight: 800; color: var(--primary);
+      font-size: 30px; font-weight: 800; color: var(--primary);
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
     .hero .logo img { width: 100%; height: 100%; object-fit: contain; }
-    .hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 10px; }
-    .hero p { font-size: 1.1rem; opacity: 0.95; max-width: 500px; margin: 0 auto; }
+    .hero h1 { font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; }
+    .hero p { font-size: 1.05rem; opacity: 0.95; max-width: 480px; margin: 0 auto; }
     .ver {
-      display: inline-block; margin-top: 16px;
+      display: inline-block; margin-top: 14px;
       background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35);
-      padding: 5px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700;
+      padding: 4px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 700;
     }
 
-    /* Trust Badge */
-    .trust-badge {
-      background: var(--card); max-width: 420px;
-      margin: -50px auto 24px; padding: 20px 25px;
+    /* أزرار التحميل داخل الـ Hero — الإجراء الأساسي */
+    .hero-cta {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      max-width: 520px; margin: 26px auto 0;
+    }
+    .cta-btn {
+      display: flex; align-items: center; gap: 10px;
+      background: #fff; color: var(--primary-dark);
+      padding: 13px 22px; border-radius: 14px;
+      font-family: 'Tajawal', sans-serif; font-weight: 800; font-size: 0.95rem;
+      text-decoration: none; border: none; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.25); }
+    .cta-btn .ico { font-size: 20px; }
+    .cta-btn small { display: block; font-size: 0.68rem; font-weight: 500; color: var(--muted); line-height: 1.3; }
+    .cta-btn.ghost {
+      background: rgba(255,255,255,0.14); color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.5);
+    }
+    .cta-btn.ghost small { color: rgba(255,255,255,0.85); }
+
+    /* شريط الثقة الموحّد */
+    .trust-strip {
+      background: var(--card); max-width: 640px;
+      margin: -46px auto 24px; padding: 14px 10px;
       border-radius: 16px; box-shadow: var(--shadow);
-      display: flex; align-items: center; gap: 15px;
-      border-right: 5px solid var(--accent);
-      position: relative; z-index: 2;
+      display: flex; position: relative; z-index: 2;
     }
-    .trust-badge .icon {
-      width: 50px; height: 50px; background: #e8f5e9; color: var(--accent);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 24px; flex-shrink: 0;
+    .trust-item {
+      flex: 1; text-align: center; padding: 4px 8px;
     }
-    .trust-badge h3 { font-size: 1rem; color: var(--text); }
-    .trust-badge p { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+    .trust-item + .trust-item { border-right: 1px solid var(--border); }
+    .trust-item .t-ico { font-size: 18px; }
+    .trust-item .t-val { font-size: 1.05rem; font-weight: 800; color: var(--primary); line-height: 1.3; }
+    .trust-item .t-lbl { font-size: 0.72rem; color: var(--muted); }
 
-    /* Referral code (?ref=) */
-    .ref {
-      background: #e9f7ef; border: 1px solid #a9dcc0; border-radius: 16px;
-      padding: 16px; margin: 0 auto 24px; max-width: 420px; text-align: center;
+    /* كود الدعوة + QR — بطاقة واحدة */
+    .refqr {
+      background: var(--card); border-radius: 16px;
+      padding: 18px; margin: 0 auto 28px; max-width: 640px;
       box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: 20px;
     }
-    .ref .lbl { font-size: 0.82rem; color: #0f6b3a; font-weight: 700; margin-bottom: 6px; }
-    .ref .code { font-size: 2rem; font-weight: 800; letter-spacing: 4px; color: var(--primary-dark); }
-    .ref .hint { font-size: 0.72rem; color: var(--muted); margin-top: 6px; line-height: 1.6; }
-    .ref button {
-      margin-top: 10px; padding: 9px 22px; border: none; border-radius: 11px;
+    .refqr .ref-side { flex: 1; text-align: center; }
+    .refqr .lbl { font-size: 0.85rem; color: #0f6b3a; font-weight: 700; margin-bottom: 6px; }
+    .refqr .code { font-size: 2rem; font-weight: 800; letter-spacing: 4px; color: var(--primary-dark); }
+    .refqr .hint { font-size: 0.72rem; color: var(--muted); margin-top: 6px; line-height: 1.6; }
+    .refqr button {
+      margin-top: 10px; padding: 8px 22px; border: none; border-radius: 10px;
       background: var(--accent); color: #fff; font-family: 'Tajawal', sans-serif;
       font-size: 0.82rem; font-weight: 700; cursor: pointer;
     }
+    .refqr .qr-side { text-align: center; flex-shrink: 0; }
+    .refqr .qr-side img { width: 110px; height: 110px; border: 1px solid var(--border); border-radius: 10px; padding: 5px; }
+    .refqr .qr-side p { font-size: 0.68rem; color: var(--muted); margin-top: 4px; }
+    .refqr .divider { width: 1px; align-self: stretch; background: var(--border); }
 
-    /* Counter */
-    .counter-box { text-align: center; margin: 24px auto; padding: 16px; }
-    .counter-box .number {
-      font-size: 3rem; font-weight: 800; color: var(--primary);
-      display: block; line-height: 1;
-    }
-    .counter-box .label { color: var(--muted); font-size: 1rem; margin-top: 8px; }
-
-    /* Downloads */
-    .downloads { max-width: 500px; margin: 0 auto 40px; padding: 0 20px; }
-    .download-card {
-      background: var(--card); border-radius: 16px; padding: 22px;
-      margin-bottom: 18px; box-shadow: var(--shadow);
-      display: flex; align-items: center; gap: 18px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-decoration: none; color: inherit;
-    }
-    .download-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(21,101,192,0.18); }
-    .download-card .icon-box {
-      width: 58px; height: 58px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px; flex-shrink: 0;
-    }
-    .android { background: #e8f5e9; color: var(--accent); }
-    .windows { background: #e3f2fd; color: var(--primary); }
-    .ios { background: #ede7f6; color: #5e35b1; }
-    .erp-ico { background: #eceff1; color: #37474f; }
-    .download-card h3 { font-size: 1.1rem; margin-bottom: 4px; }
-    .download-card p { font-size: 0.82rem; color: var(--muted); }
-    .download-card .arrow { margin-right: auto; font-size: 20px; color: var(--muted); }
-
-    /* Team / ERP */
-    .team {
-      max-width: 500px; margin: 0 auto 40px; padding: 0 20px;
-    }
-    .team-head { text-align: center; margin-bottom: 14px; }
-    .team-head h2 { font-size: 1.15rem; color: var(--text); }
-    .team-head p { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
-    .download-card.erp-btn {
-      width: 100%; border: none; cursor: pointer; text-align: right;
-      font-family: 'Tajawal', sans-serif;
-    }
-
-    /* Steps */
-    .steps { max-width: 700px; margin: 0 auto 50px; padding: 0 20px; }
-    .steps h2 { text-align: center; font-size: 1.5rem; margin-bottom: 30px; color: var(--text); }
+    /* الخطوات */
+    .steps { max-width: 680px; margin: 0 auto 40px; padding: 0 20px; }
+    .steps h2 { text-align: center; font-size: 1.35rem; margin-bottom: 24px; }
     .step {
-      display: flex; align-items: flex-start; gap: 18px;
-      background: var(--card); padding: 22px; border-radius: 16px;
-      margin-bottom: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      display: flex; align-items: flex-start; gap: 16px;
+      background: var(--card); padding: 18px 20px; border-radius: 14px;
+      margin-bottom: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);
     }
     .step-num {
-      width: 42px; height: 42px; background: var(--primary); color: white;
+      width: 38px; height: 38px; background: var(--primary); color: white;
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 1.1rem; flex-shrink: 0;
+      font-weight: 800; font-size: 1rem; flex-shrink: 0;
     }
-    .step h4 { font-size: 1.05rem; margin-bottom: 6px; }
-    .step p { font-size: 0.9rem; color: var(--muted); }
+    .step h4 { font-size: 1rem; margin-bottom: 4px; }
+    .step p { font-size: 0.86rem; color: var(--muted); }
 
-    /* QR */
-    .qr-section {
-      text-align: center; padding: 28px 20px; background: var(--card);
-      max-width: 500px; margin: 0 auto 40px; border-radius: 16px; box-shadow: var(--shadow);
+    /* قسم البوابات — تبويبات الجماهير */
+    .portals { max-width: 680px; margin: 0 auto 44px; padding: 0 20px; }
+    .portals > h2 { text-align: center; font-size: 1.35rem; margin-bottom: 6px; }
+    .portals > .sub { text-align: center; font-size: 0.85rem; color: var(--muted); margin-bottom: 20px; }
+    .tabs {
+      display: flex; background: #e4ebf3; border-radius: 14px; padding: 5px;
+      margin-bottom: 18px;
     }
-    .qr-section img { width: 160px; height: 160px; margin: 15px auto; display: block;
-      border: 1px solid var(--border); border-radius: 12px; padding: 6px; }
+    .tab {
+      flex: 1; padding: 10px 6px; border: none; border-radius: 10px;
+      background: transparent; color: var(--muted);
+      font-family: 'Tajawal', sans-serif; font-size: 0.85rem; font-weight: 700;
+      cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    }
+    .tab.active { background: var(--card); color: var(--primary-dark); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .panel { display: none; }
+    .panel.active { display: block; animation: fadeInUp 0.35s ease-out; }
+
+    .p-card {
+      background: var(--card); border-radius: 14px; padding: 20px;
+      box-shadow: var(--shadow); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 16px;
+      text-decoration: none; color: inherit;
+      transition: transform 0.2s;
+    }
+    .p-card:hover { transform: translateY(-3px); }
+    .p-card .icon-box {
+      width: 50px; height: 50px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .erp-c { background: #eceff1; }
+    .reps-c { background: #e8f5e9; }
+    .est-c  { background: #e3f2fd; }
+    .p-card h3 { font-size: 1rem; margin-bottom: 3px; }
+    .p-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+    .p-card .arrow { margin-right: auto; color: var(--muted); font-size: 18px; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .grid2 .p-card { flex-direction: column; text-align: center; gap: 10px; margin-bottom: 0; }
+    .grid2 .p-card .arrow { display: none; }
+    .note { font-size: 0.78rem; color: var(--muted); text-align: center; margin-top: 14px; line-height: 1.7; }
 
     /* Footer */
-    .footer { text-align: center; padding: 30px 20px; color: var(--muted); font-size: 0.85rem; }
+    .footer { text-align: center; padding: 26px 20px; color: var(--muted); font-size: 0.82rem; }
 
     /* WhatsApp Float */
     .wa-float {
-      position: fixed; bottom: 24px; left: 24px; background: #25d366; color: white;
-      width: 60px; height: 60px; border-radius: 50%;
+      position: fixed; bottom: 22px; left: 22px; background: #25d366; color: white;
+      width: 56px; height: 56px; border-radius: 50%;
       display: none; align-items: center; justify-content: center;
-      font-size: 32px; text-decoration: none;
       box-shadow: 0 6px 20px rgba(37,211,102,0.4); transition: transform 0.2s; z-index: 100;
     }
     .wa-float.on { display: flex; }
@@ -175,12 +192,12 @@
       backdrop-filter: blur(3px); display: none; align-items: center; justify-content: center;
       padding: 18px; z-index: 200; }
     .ov.on { display: flex; }
-    .modal { background: #fff; border-radius: 20px; width: 100%; max-width: 380px;
+    .modal { background: #fff; border-radius: 18px; width: 100%; max-width: 380px;
       padding: 24px 22px; box-shadow: 0 24px 60px rgba(0,0,0,0.3); }
     .modal h3 { font-size: 1.05rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 4px; }
     .modal p.sub { font-size: 0.78rem; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
     .fld { margin-bottom: 12px; }
-    .fld label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 5px; color: var(--text); }
+    .fld label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 5px; }
     .fld input { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border);
       border-radius: 12px; font-family: 'Tajawal', sans-serif; font-size: 0.95rem; outline: none; }
     .fld input:focus { border-color: var(--primary); }
@@ -194,83 +211,117 @@
     .ok:disabled { opacity: 0.6; cursor: default; }
     .cancel { background: #eef2f7; color: var(--muted); }
 
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .hero, .trust-badge, .ref, .download-card, .step, .qr-section { animation: fadeInUp 0.6s ease-out both; }
-    .trust-badge { animation-delay: 0.1s; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .hero, .trust-strip, .refqr, .step, .portals { animation: fadeInUp 0.6s ease-out both; }
+    .trust-strip { animation-delay: 0.1s; }
+    .refqr { animation-delay: 0.15s; }
+    .steps, .portals { animation-delay: 0.2s; }
 
-    @media (max-width: 480px) {
+    @media (max-width: 560px) {
+      .hero { padding: 44px 16px 80px; }
       .hero h1 { font-size: 1.7rem; }
-      .counter-box .number { font-size: 2.4rem; }
-      .download-card { flex-direction: column; text-align: center; }
-      .download-card.erp-btn { text-align: center; }
-      .download-card .arrow { display: none; }
+      .cta-btn { flex: 1 1 100%; justify-content: center; }
+      .refqr { flex-direction: column; }
+      .refqr .divider { display: none; }
+      .grid2 { grid-template-columns: 1fr; }
+      .grid2 .p-card { flex-direction: row; text-align: right; gap: 16px; }
+      .grid2 .p-card .arrow { display: block; }
+      .tab { font-size: 0.78rem; white-space: normal; }
+    }
+
+    /* ===== تخطيط الكمبيوتر: حاويات أوسع واستغلال عرض الشاشة ===== */
+    @media (min-width: 820px) {
+      .hero { padding: 68px 20px 110px; }
+      .hero h1 { font-size: 2.5rem; }
+      .hero p { font-size: 1.15rem; max-width: 560px; }
+      .hero-cta { max-width: 760px; }
+      .cta-btn { flex: 1; min-width: 210px; }
+
+      .trust-strip { max-width: 820px; }
+      .trust-item .t-val { font-size: 1.25rem; }
+
+      .refqr { max-width: 820px; }
+
+      /* الخطوات الثلاث في صفّ أفقي بدل عمود */
+      .steps { max-width: 980px; display: grid;
+        grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+      .steps h2 { grid-column: 1 / -1; font-size: 1.5rem; margin-bottom: 10px; }
+      .step { flex-direction: column; text-align: center; align-items: center;
+        margin-bottom: 0; height: 100%; }
+      .step-num { margin-bottom: 8px; }
+
+      /* البوابات أوسع */
+      .portals { max-width: 980px; }
+      .portals > h2 { font-size: 1.5rem; }
+      /* بطاقة المصنع/الفريق المفردة تبقى بعرض مريح وسط اللوح */
+      #panel-reps .p-card, #panel-team .p-card { max-width: 620px; margin-inline: auto; }
+    }
+
+    @media (min-width: 1140px) {
+      .steps, .portals { max-width: 1060px; }
     }
   </style>
+<base target="_blank">
 </head>
 <body>
 
-  <!-- Hero -->
+  <!-- Hero — الإجراء الأساسي فوراً -->
   <div class="hero">
     <div class="logo" id="logo"><span>NF</span></div>
     <h1>NexFit</h1>
     <p>منصّتك الشاملة لخامات التشطيب والديكور<br>مصنع سامي رأفت — جودة عالية · توصيل سريع</p>
     <div class="ver" id="ver">جارٍ التحميل…</div>
-  </div>
-
-  <!-- Trust Badge -->
-  <div class="trust-badge">
-    <div class="icon">✓</div>
-    <div>
-      <h3>تطبيق معتمد من المصنع مباشرة</h3>
-      <p>مصنع سامي رأفت للخراطيم والتشطيب — العاشر من رمضان</p>
+    <div class="hero-cta">
+      <a href="#" id="aBtn" class="cta-btn" download>
+        <span class="ico">📱</span>
+        <span>تحميل أندرويد<small>ملف APK — ثبّته يدوياً</small></span>
+      </a>
+      <a href="#" id="wBtn" class="cta-btn" download>
+        <span class="ico">💻</span>
+        <span>تحميل ويندوز<small>ملف ZIP — فكّ الضغط وشغّله</small></span>
+      </a>
+      <a href="./app/" id="iBtn" class="cta-btn ghost">
+        <span class="ico">🌐</span>
+        <span>نسخة الويب للآيفون<small>بلا تثبيت — من المتصفح</small></span>
+      </a>
     </div>
   </div>
 
-  <!-- Referral code (?ref=) -->
-  <div class="ref" id="refBox" style="display:none">
-    <div class="lbl">🎁 كود دعوتك (من صاحب الدعوة)</div>
-    <div class="code" id="refCode">—</div>
-    <div class="hint">أدخِله في خانة «كود الدعوة» عند إنشاء الحساب — فهو إجباري.</div>
-    <button type="button" id="refCopy">نسخ الكود</button>
+  <!-- شريط الثقة الموحّد -->
+  <div class="trust-strip">
+    <div class="trust-item">
+      <div class="t-ico">✓</div>
+      <div class="t-val" style="font-size:0.85rem; color:var(--accent); padding-top:3px;">معتمد من المصنع</div>
+      <div class="t-lbl">مصنع سامي رأفت — العاشر من رمضان</div>
+    </div>
+    <div class="trust-item" id="counterItem" style="display:none">
+      <div class="t-ico">👷</div>
+      <div class="t-val" id="dl-count">0</div>
+      <div class="t-lbl">صاحب محل ومهندس انضموا إلينا</div>
+    </div>
+    <div class="trust-item">
+      <div class="t-ico">⚡</div>
+      <div class="t-val" style="font-size:0.85rem; padding-top:3px;">أحدث إصدار دائماً</div>
+      <div class="t-lbl">هذه الصفحة تحدّث الروابط تلقائياً</div>
+    </div>
   </div>
 
-  <!-- Counter (عدد المستفيدين الحقيقي) -->
-  <div class="counter-box" id="counterBox" style="display:none">
-    <span class="number" id="dl-count">0</span>
-    <div class="label">من أصحاب المحلات والمهندسين انضمّوا إلى NexFit</div>
+  <!-- كود الدعوة + QR — بطاقة واحدة -->
+  <div class="refqr" id="refBox" style="display:none">
+    <div class="ref-side">
+      <div class="lbl">🎁 كود دعوتك (من صاحب الدعوة)</div>
+      <div class="code" id="refCode">—</div>
+      <div class="hint">أدخِله في خانة «كود الدعوة» عند إنشاء الحساب — فهو إجباري.</div>
+      <button type="button" id="refCopy">نسخ الكود</button>
+    </div>
+    <div class="divider"></div>
+    <div class="qr-side" id="qrSide" style="display:none">
+      <img id="qr" alt="QR أندرويد">
+      <p>صوّره بكاميرا الموبايل للتحميل</p>
+    </div>
   </div>
 
-  <!-- Downloads -->
-  <div class="downloads" id="downloads">
-    <a href="#" id="aBtn" class="download-card" download>
-      <div class="icon-box android">📱</div>
-      <div>
-        <h3>تحميل لأندرويد (APK)</h3>
-        <p>ثبّته يدوياً — قد يطلب السماح بمصدر غير معروف</p>
-      </div>
-      <div class="arrow">←</div>
-    </a>
-
-    <a href="#" id="wBtn" class="download-card" download>
-      <div class="icon-box windows">💻</div>
-      <div>
-        <h3>تحميل لويندوز (ZIP)</h3>
-        <p>فُكّ الضغط ثم شغّل NexFit.exe</p>
-      </div>
-      <div class="arrow">←</div>
-    </a>
-
-    <a href="./app/" id="iBtn" class="download-card">
-      <div class="icon-box ios">📲</div>
-      <div>
-        <h3>افتح على الآيفون (نسخة الويب)</h3>
-        <p>Safari: زر المشاركة ثم «إضافة إلى الشاشة الرئيسية»</p>
-      </div>
-      <div class="arrow">←</div>
-    </a>
-  </div>
-
-  <!-- Steps -->
+  <!-- الخطوات -->
   <div class="steps">
     <h2>كيف تثبّت التطبيق في 3 خطوات؟</h2>
     <div class="step">
@@ -296,82 +347,77 @@
     </div>
   </div>
 
-  <!-- QR -->
-  <div class="qr-section" id="qrBox" style="display:none">
-    <h3>📷 صوّر الكود بالموبايل</h3>
-    <img id="qr" alt="QR أندرويد">
-    <p style="color: var(--muted); font-size: 0.85rem;">صوّر الرمز بكاميرا الموبايل لتحميل نسخة الأندرويد</p>
-  </div>
+  <!-- البوابات — تبويبات حسب الجمهور -->
+  <div class="portals" id="portals">
+    <h2>خدمات المهنيين</h2>
+    <p class="sub">بوابات مخصّصة لكل فئة — اختر تبويبك لعرض ما يخصّك فقط</p>
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="team" type="button">🏭 فريق العمل</button>
+      <button class="tab" data-tab="reps" type="button">🧑‍💼 مسوّق المصانع</button>
+      <button class="tab" data-tab="estate" type="button">🏢 المطوّر العقاري</button>
+    </div>
 
-  <!-- Team / ERP -->
-  <div class="team">
-    <div class="team-head">
-      <h2>🏭 لفريق العمل والقائمين معنا عن بُعد</h2>
-      <p>النظام الإداري الكامل (ERP) لإدارة المصنع — أوامر الشغل والمخزون والمالية والعملاء. لفريق العمل فقط، ويعمل على ويندوز.</p>
+    <!-- فريق العمل (ERP) -->
+    <div class="panel active" id="panel-team">
+      <button class="p-card" id="erpBtn" type="button" style="width:100%; border:none; cursor:pointer; font-family:'Tajawal',sans-serif; text-align:right;">
+        <div class="icon-box erp-c">🔒</div>
+        <div>
+          <h3>تحميل النظام الإداري (ERP) لويندوز</h3>
+          <p>إدارة أوامر الشغل والمخزون والمالية والعملاء — لفريق العمل فقط، ويتطلّب الاسم وكلمة السر من القائد.</p>
+        </div>
+        <div class="arrow">←</div>
+      </button>
     </div>
-    <button class="download-card erp-btn" id="erpBtn" type="button">
-      <div class="icon-box erp-ico">🔒</div>
-      <div>
-        <h3>تحميل النظام الإداري ERP لويندوز</h3>
-        <p>يتطلّب الاسم وكلمة السر من القائد</p>
-      </div>
-      <div class="arrow">←</div>
-    </button>
-  </div>
 
-  <!-- Reps portal -->
-  <div class="team">
-    <div class="team-head">
-      <h2>🧑‍💼 بوابة منتجات المصانع</h2>
-      <p>خدمة مجانية لاصحاب ومسوّقي المصانع: ارفع منتجاتك المتاحة بأسعارها وفروزها، وأنشئ لكل عميل رابطاً دائماً يرى فيه المتاح وخصمه — محدَّثاً لحظياً. تعمل من المتصفح بلا تثبيت، نعمل على تسهيل الامر لكم وننتظر منكم ارائكم.</p>
+    <!-- مسوّق المصانع -->
+    <div class="panel" id="panel-reps">
+      <a href="./reps/" class="p-card">
+        <div class="icon-box reps-c">🧑‍💼</div>
+        <div>
+          <h3>بوابة منتجات المصانع</h3>
+          <p>ارفع منتجاتك المتاحة بأسعارها وفروزها، وأنشئ لكل عميل رابطاً دائماً محدَّثاً لحظياً — من المتصفح بلا تثبيت.</p>
+        </div>
+        <div class="arrow">←</div>
+      </a>
+      <p class="note">سجّل، أنشئ مصنعك أو انضمّ بكود انضمام، وابدأ النشر. الخدمة مجانية ونعمل على تسهيلها — ننتظر آراءكم.</p>
     </div>
-    <a href="./reps/" class="download-card">
-      <div class="icon-box ios">🧑‍💼</div>
-      <div>
-        <h3>لادخال منتجات المصنع</h3>
-        <p>سجّل، أنشئ مصنعك أو انضمّ بكود انضمام، وابدأ النشر</p>
-      </div>
-      <div class="arrow">←</div>
-    </a>
-  </div>
 
-  <!-- Estate developers portal -->
-  <div class="team">
-    <div class="team-head">
-      <h2>🏢 بوابة مطوّري العقارات</h2>
-      <p>خدمة مجانية للمطوّرين والمسوّقين العقاريين: ارفع وحداتك (شقة/فيلا/أرض) بصورها وأسعارها، وأنشئ لكل وحدة رابطاً تُرسله للعميل أو المسوّق بضغطة — يعرض كل البيانات. تعمل من المتصفح بلا تثبيت.</p>
+    <!-- المطوّر العقاري -->
+    <div class="panel" id="panel-estate">
+      <div class="grid2">
+        <a href="./estate/" class="p-card">
+          <div class="icon-box est-c">🏢</div>
+          <div>
+            <h3>بوابة المطوّر — من المتصفح</h3>
+            <p>أضِف وحداتك وأنشئ روابط المشاركة. أضِفها لشاشتك الرئيسية لتفتح كتطبيق ودائماً أحدث نسخة.</p>
+          </div>
+          <div class="arrow">←</div>
+        </a>
+        <div class="p-card" style="opacity:.72; cursor:default">
+          <div class="icon-box est-c">📱</div>
+          <div>
+            <h3>تطبيق المطوّر — قريباً</h3>
+            <p>جارٍ تجهيز نسخة مستقرة. استخدم نسخة المتصفح وأضِفها لشاشتك الرئيسية لوصول أسرع.</p>
+          </div>
+        </div>
+        <a href="./estate/#/market" class="p-card">
+          <div class="icon-box est-c">🛒</div>
+          <div>
+            <h3>سوق العقارات</h3>
+            <p>تصفّح الوحدات المعروضة للبيع من المطوّرين</p>
+          </div>
+          <div class="arrow">←</div>
+        </a>
+        <a href="./estate/#/find" class="p-card">
+          <div class="icon-box est-c">🔎</div>
+          <div>
+            <h3>ابحث عن مطوّر بالكود</h3>
+            <p>ادخل كود المطوّر لرؤية كل وحداته واحفظه في المفضّلة</p>
+          </div>
+          <div class="arrow">←</div>
+        </a>
+      </div>
     </div>
-    <a href="./estate/" class="download-card">
-      <div class="icon-box ios">🏢</div>
-      <div>
-        <h3>بوابة المطوّر — من المتصفح</h3>
-        <p>سجّل، أضِف وحداتك، وأنشئ روابط المشاركة — بلا تثبيت. أضِفها لشاشتك الرئيسية لتفتح كتطبيق ودائماً أحدث نسخة.</p>
-      </div>
-      <div class="arrow">←</div>
-    </a>
-    <div class="download-card" style="opacity:.75;cursor:default">
-      <div class="icon-box ios">📱</div>
-      <div>
-        <h3>تطبيق الموبايل المستقل — قريباً</h3>
-        <p>جارٍ تجهيز نسخة مستقرة. حتى ذلك الحين استخدم نسخة المتصفح وأضِفها لشاشتك الرئيسية لوصول أسرع.</p>
-      </div>
-    </div>
-    <a href="./estate/#/market" class="download-card">
-      <div class="icon-box ios">🛒</div>
-      <div>
-        <h3>سوق العقارات</h3>
-        <p>تصفّح الوحدات المعروضة للبيع من المطوّرين</p>
-      </div>
-      <div class="arrow">←</div>
-    </a>
-    <a href="./estate/#/find" class="download-card">
-      <div class="icon-box ios">🔎</div>
-      <div>
-        <h3>ابحث عن مطوّر بالكود</h3>
-        <p>ادخل كود المطوّر لرؤية كل وحداته + احفظه في المفضّلة</p>
-      </div>
-      <div class="arrow">←</div>
-    </a>
   </div>
 
   <!-- Footer -->
@@ -380,9 +426,9 @@
     <p style="margin-top: 6px;">هذه الصفحة تعرض دائماً أحدث إصدار متاح · واتساب الدعم بالأسفل</p>
   </div>
 
-  <!-- WhatsApp Float (رقمه من إعدادات القائد) -->
+  <!-- WhatsApp Float -->
   <a href="#" class="wa-float" id="waFloat" target="_blank" title="تواصل عبر واتساب">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
   </a>
@@ -421,7 +467,7 @@
       const ref = new URLSearchParams(location.search).get('ref');
       const code = (ref ? ref.trim().toUpperCase().slice(0, 12) : '') || '1982';
       document.getElementById('refCode').textContent = code;
-      document.getElementById('refBox').style.display = 'block';
+      document.getElementById('refBox').style.display = 'flex';
       const btn = document.getElementById('refCopy');
       btn.addEventListener('click', function(){
         navigator.clipboard.writeText(code).then(
@@ -431,11 +477,30 @@
       });
     })();
 
+    // ── تبويبات الجماهير (?tab=team|reps|estate أو بالضغط) ──
+    (function(){
+      const tabs = document.querySelectorAll('.tab');
+      function activate(name){
+        tabs.forEach(function(t){
+          const on = t.dataset.tab === name;
+          t.classList.toggle('active', on);
+          document.getElementById('panel-' + t.dataset.tab).classList.toggle('active', on);
+        });
+      }
+      tabs.forEach(function(t){
+        t.addEventListener('click', function(){
+          activate(t.dataset.tab);
+          history.replaceState(null, '', '#' + t.dataset.tab);
+        });
+      });
+      const fromUrl = new URLSearchParams(location.search).get('tab') || (location.hash || '').replace('#','');
+      if (['team','reps','estate'].indexOf(fromUrl) !== -1) activate(fromUrl);
+    })();
+
     // مستخدم آيفون/آيباد؟ قدّم له زر نسخة الويب أولاً (لا يستطيع تثبيت APK)
     if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      const dl = document.getElementById('downloads');
-      const i = document.getElementById('iBtn');
-      dl.insertBefore(i, dl.firstElementChild);
+      const cta = document.querySelector('.hero-cta');
+      cta.insertBefore(document.getElementById('iBtn'), cta.firstElementChild);
     }
 
     // أيقونة دائرية بخلفية بيضاء واللوجو بداخلها (عبر canvas) ← favicon
@@ -476,7 +541,7 @@
       const apk = a || FB_A;
       document.getElementById('qr').src =
         'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(apk);
-      document.getElementById('qrBox').style.display = 'block';
+      document.getElementById('qrSide').style.display = 'block';
       if (logo){
         document.getElementById('logo').innerHTML = '<img src="' + logo + '" alt="NexFit">';
         makeCircularFavicon(logo);
@@ -519,7 +584,7 @@
     .then(s => {
       const n = s && typeof s.shops === 'number' ? s.shops : (s && s.shops ? parseInt(s.shops) : 0);
       if (n && n > 0){
-        document.getElementById('counterBox').style.display = 'block';
+        document.getElementById('counterItem').style.display = 'block';
         animateValue('dl-count', 0, n, 1200);
       }
     })
