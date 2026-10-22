@@ -269,7 +269,7 @@
   <div class="hero">
     <div class="logo" id="logo"><span>NF</span></div>
     <h1 id="brandName">NexFit</h1>
-    <p>منصّتك الشاملة لخامات التشطيب والديكور<br>هدفنا — جودة عالية · توصيل سريع</p>
+    <p id="tagline">منصّتك الشاملة لخامات التشطيب والديكور<br>هدفنا — جودة عالية · توصيل سريع</p>
     <div class="ver" id="ver">جارٍ التحميل…</div>
     <div class="hero-cta">
       <a href="#" id="aBtn" class="cta-btn" download>
@@ -571,6 +571,17 @@
     .then(rows => { const c = rows && (Array.isArray(rows) ? rows[0] : rows);
       const bn = c && c.brand_name && ('' + c.brand_name).trim();
       if (bn){ document.getElementById('brandName').textContent = bn; document.title = 'تحميل تطبيق ' + bn; } })
+    .catch(() => {});
+
+    // النشاط/النبذة من ERP (طلب مستقل يتجاهل الفشل لو لم يُضَف العمود بعد)
+    fetch(SB + '/rest/v1/app_config?id=eq.1&select=tagline', {
+      headers: { apikey: KEY, Authorization: 'Bearer ' + KEY }
+    })
+    .then(r => r.ok ? r.json() : null)
+    .then(rows => { const c = rows && (Array.isArray(rows) ? rows[0] : rows);
+      const tg = c && c.tagline && ('' + c.tagline).trim();
+      if (tg){ document.getElementById('tagline').innerHTML =
+          tg.replace(/[&<>]/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[s])).replace(/\n/g, '<br>'); } })
     .catch(() => {});
 
     // ── العدّاد الحقيقي: عدد المستفيدين (ينمو مع كل مستخدم جديد) ──
