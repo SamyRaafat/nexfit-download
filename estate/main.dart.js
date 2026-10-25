@@ -125464,7 +125464,7 @@ return A.w($async$yy,r)},
 zo(){var s=0,r=A.x(t.H),q,p=2,o=[],n=this,m,l,k,j,i,h,g,f,e,d,c,b,a,a0
 var $async$zo=A.t(function(a1,a2){if(a1===1){o.push(a2)
 s=p}while(true)switch(s){case 0:a=n.ay
-if(a.length>=7){s=1
+if(a.length>=20){s=1
 break}i=n.c
 i.toString
 m=A.fd(i,!1,t.ng)
@@ -125475,7 +125475,7 @@ g=h==null?null:h.a
 if(g==null)g=A.a([],t.M6)
 i=J.a8(g)
 if(i.gag(g)){s=1
-break}f=i.mk(g,7-a.length).hg(0)
+break}f=i.mk(g,20-a.length).hg(0)
 n.a2(new A.aXF(n,f))
 n.zP(!0)
 a=f.length,e=0
@@ -125629,8 +125629,8 @@ r=A.cX([k],r)
 k=t.p
 g=A.cr(A.b9E(B.y3,A.BG(A.cu(A.a([f,B.iC,new A.b5(B.zL,e,i),d,B.ay,c,B.ay,s,B.ay,q,B.ay,p,B.ay,o,B.ay,n,B.at0,new A.b5(B.zL,m,i),new A.Br(l,r,new A.aXW(j),i,t.eP),B.ay,A.b2g(B.iL,j.f==="sale"?A.mp(!0,j.Q,B.a4A,!0,i,B.aBZ,B.km,1,i,!1,i,B.l,new A.aXX(j)):A.cu(A.a([A.mp(!0,j.as,B.a4K,!0,i,i,B.km,1,i,!1,i,B.l,new A.aXY(j)),B.ay,A.mp(!0,j.at,B.a4r,!0,i,i,B.km,1,i,!1,i,B.l,new A.aXZ(j))],t.p),B.G,B.aBY,B.r,B.J),B.cK,B.a0n),B.ay,A.mp(!0,j.ax,A.b3x(i,i,i,i,i,i,i,i,!0,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,"\u0627\u0644\u0645\u0628\u0644\u063a \u0627\u0644\u0645\u0637\u0631\u0648\u062d \u0644\u0644\u0633\u0645\u0633\u0627\u0631 (\u062c) \u2014 \u0627\u062e\u062a\u064a\u0627\u0631\u064a",!0,i,B.a3j,i,i,i,i,i,i,A.b4E(B.a3f,"\u064a\u0631\u0627\u0647 \u0627\u0644\u0645\u0637\u0648\u0651\u0631 \u0641\u0642\u0637 \u2014 \u0644\u0627 \u064a\u0638\u0647\u0631 \u0644\u0644\u0639\u0645\u064a\u0644 \u0641\u064a \u0635\u0641\u062d\u0629 \u0627\u0644\u0639\u0631\u0636.",B.bw,B.aAC),i,i,i,i),!0,i,i,B.km,1,i,!1,i,B.l,new A.aY_(j))],k),B.aC,i,B.r,B.J),i),j.d),i,g)
 return A.ait(A.a([A.jo(!1,B.x0,i,i,i,i,i,i,new A.aY0(a),i,i),A.zk(!1,B.V3,i,i,i,i,i,i,j.gayU(),i,i)],k),g,h)},
-asQ(){var s,r,q=this,p=null,o=q.ay,n=o.length,m=A.aR("\u0635\u0648\u0631 \u0627\u0644\u062a\u0634\u0637\u064a\u0628 ("+n+"/7)",p,p,p,B.cF,p,p),l=q.cy
-n=l||n>=7?p:q.gawW()
+asQ(){var s,r,q=this,p=null,o=q.ay,n=o.length,m=A.aR("\u0635\u0648\u0631 \u0627\u0644\u062a\u0634\u0637\u064a\u0628 ("+n+"/20)",p,p,p,B.cF,p,p),l=q.cy
+n=l||n>=20?p:q.gawW()
 s=l?B.asY:B.a32
 r=t.p
 r=A.a([A.cP(A.a([m,B.atm,A.mo(s,A.aR(l?"\u062c\u0627\u0631\u064d \u0631\u0641\u0639 "+q.db+" \u0645\u0646 "+q.dx:"\u0625\u0636\u0627\u0641\u0629 \u0635\u0648\u0631",p,p,p,p,p,p),n,p,p)],r),B.G,B.r,B.J,p)],r)
