@@ -25,14 +25,27 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="عقارات NexFit">
+  <meta name="apple-mobile-web-app-title" content="عقارات MATRIA HOME">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>عقارات NexFit</title>
+  <title>عقارات MATRIA HOME</title>
   <link rel="manifest" href="manifest.json">
+  <!-- اسم العلامة يتحكّم به القائد من ERP (app_config.brand_name) — تحديث حيّ لعنوان التبويب. -->
+  <script>
+    (function () {
+      var SB = 'https://mwzjxjmvokdeijwnaesk.supabase.co';
+      var KEY = 'sb_publishable_yAMh2iapZYTYwxycO9FSPA_cWNuuEP2';
+      fetch(SB + '/rest/v1/app_config?id=eq.1&select=brand_name', {
+        headers: { apikey: KEY }
+      }).then(function (r) { return r.json(); }).then(function (rows) {
+        var bn = rows && rows[0] && ('' + rows[0].brand_name).trim();
+        if (bn) { document.title = 'عقارات ' + bn; }
+      }).catch(function () {});
+    })();
+  </script>
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
