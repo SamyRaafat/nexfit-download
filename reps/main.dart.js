@@ -123073,7 +123073,7 @@ p=A.btA(new A.kI(4,A.fK(12),B.yd),new A.kI(4,A.fK(12),B.yd),B.q,!0)
 r=s.aHl(B.Wv,new A.vH(o,B.q,o,o,0.5,o,new A.dT(A.fK(14),B.D)),new A.Bn(q),p,r)
 p=this.e
 p===$&&A.b()
-return A.bc9(new A.CE(p.gaQl(),new A.aXP(),"NexFit \u2014 \u0628\u0648\u0627\u0628\u0629 \u0627\u0644\u0645\u0646\u0627\u062f\u064a\u0628",r,B.Jv,B.akK,B.aih,!1,o),n,t.tj)}}
+return A.bc9(new A.CE(p.gaQl(),new A.aXP(),"\u0645\u0646\u062a\u062c\u0627\u062a \u0627\u0644\u0645\u0635\u0627\u0646\u0639",r,B.Jv,B.akK,B.aih,!1,o),n,t.tj)}}
 A.aXP.prototype={
 $2(a,b){b.toString
 return A.b73(b,B.bm)},
@@ -123617,7 +123617,7 @@ if(o!=null)p.push(A.vV(A.fK(16),A.HU(new A.aX2(),B.e_,B.XF,130,o,r,r,1/0),B.ca))
 else p.push(B.AV)
 p.push(B.c5)
 o=A.T(a).p1.f
-p.push(A.b0("NexFit \u2014 \u0628\u0648\u0627\u0628\u0629 \u0627\u0644\u0645\u0646\u0627\u062f\u064a\u0628",r,r,r,o==null?r:o.aGH(B.cP),B.ee,r))
+p.push(A.b0("\u0645\u0646\u062a\u062c\u0627\u062a \u0627\u0644\u0645\u0635\u0627\u0646\u0639",r,r,r,o==null?r:o.aGH(B.cP),B.ee,r))
 p.push(B.rf)
 p.push(A.b0(q.r?"\u0625\u0646\u0634\u0627\u0621 \u062d\u0633\u0627\u0628 \u062c\u062f\u064a\u062f":"\u062a\u0633\u062c\u064a\u0644 \u0627\u0644\u062f\u062e\u0648\u0644",r,r,r,B.cx,B.ee,r))
 p.push(B.UP)
@@ -127360,7 +127360,7 @@ J(){return"WorkspaceRole."+this.b}}
 A.k2.prototype={
 gB0(){var s=this.b
 s=s==null?null:s.b
-return s==null?"\u0628\u0648\u0627\u0628\u0629 \u0627\u0644\u0645\u0646\u0627\u062f\u064a\u0628":s},
+return s==null?"\u0645\u0646\u062a\u062c\u0627\u062a \u0627\u0644\u0645\u0635\u0627\u0646\u0639":s},
 gbI(){var s=this
 return[s.a,s.b,s.c,s.d,s.e]}}
 A.Cy.prototype={
