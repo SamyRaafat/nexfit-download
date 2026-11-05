@@ -1,6 +1,6 @@
 {
-    "name": "namaa_shell",
-    "short_name": "namaa_shell",
+    "name": "نماء — مجتمع التطبيقات",
+    "short_name": "نماء",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
