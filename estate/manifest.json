@@ -1,7 +1,8 @@
 {
-    "name": "عقارات NexFit — بوابة المطوّر",
-    "short_name": "عقارات NexFit",
-    "start_url": ".",
+    "name": "NexFit",
+    "short_name": "NexFit",
+    "start_url": "/nexfit-download/app/",
+    "scope": "/nexfit-download/",
     "display": "standalone",
     "background_color": "#1E6F5C",
     "theme_color": "#1E6F5C",

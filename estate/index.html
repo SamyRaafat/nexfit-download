@@ -46,6 +46,7 @@
       }).catch(function () {});
     })();
   </script>
+  <script>if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.update();});});var _r=false;navigator.serviceWorker.addEventListener("controllerchange",function(){if(_r)return;_r=true;location.reload();});}</script>
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>

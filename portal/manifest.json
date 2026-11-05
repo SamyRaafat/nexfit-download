@@ -1,7 +1,8 @@
 {
-    "name": "بوابة العملاء — NexFit",
-    "short_name": "بوابة العملاء",
-    "start_url": ".",
+    "name": "NexFit",
+    "short_name": "NexFit",
+    "start_url": "/nexfit-download/app/",
+    "scope": "/nexfit-download/",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
