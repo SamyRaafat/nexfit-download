@@ -4,9 +4,9 @@
     "start_url": "/nexfit-download/app/",
     "scope": "/nexfit-download/",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#0d47a1",
+    "theme_color": "#0d47a1",
+    "description": "NexFit — متجرك ومصانعك وعقاراتك ومحلّاتك في مكان واحد",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
