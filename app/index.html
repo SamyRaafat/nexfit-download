@@ -34,6 +34,13 @@
   <script>if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.update();});});var _r=false;navigator.serviceWorker.addEventListener("controllerchange",function(){if(_r)return;_r=true;location.reload();});}</script>
 </head>
 <body>
+  <script>
+    // CanvasKit من CDN مشترك (نفس إصدار المحرّك لكل التطبيقات) ⇒ يُحمَّل مرّة
+    // ويُخزَّن للجميع، فيسرّع الانتقال بين التطبيقات.
+    window.flutterConfiguration = {
+      canvasKitBaseUrl: "https://www.gstatic.com/flutter-canvaskit/cf56914b326edb0ccb123ffdc60f00060bd513fa/"
+    };
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
