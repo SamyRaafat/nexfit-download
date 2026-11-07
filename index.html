@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تحميل تطبيق NexFit</title>
-  <link rel="icon" type="image/png" id="fav" href="https://mwzjxjmvokdeijwnaesk.supabase.co/storage/v1/object/public/product-images/brand/logo_1782869413550.png">
-  <link rel="apple-touch-icon" id="favA" href="https://mwzjxjmvokdeijwnaesk.supabase.co/storage/v1/object/public/product-images/brand/logo_1782869413550.png">
+  <title>تحميل تطبيق مدار</title>
+  <link rel="icon" type="image/png" id="fav" href="./app/icons/Icon-512.png">
+  <link rel="apple-touch-icon" id="favA" href="./app/icons/Icon-512.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
   <style>
@@ -267,10 +267,9 @@
 
   <!-- Hero — الإجراء الأساسي فوراً -->
   <div class="hero">
-    <div class="logo" id="logo"><span>NF</span></div>
-    <h1 id="brandName">NexFit</h1>
+    <div class="logo" id="logo"><span>مدار</span></div>
+    <h1 id="brandName">مدار</h1>
     <p id="tagline">منصّتك الشاملة لخامات التشطيب والديكور<br>هدفنا — جودة عالية · توصيل سريع</p>
-    <div class="ver" id="ver">جارٍ التحميل…</div>
     <div class="hero-cta">
       <a href="#" id="aBtn" class="cta-btn" download>
         <span class="ico">📱</span>
@@ -321,36 +320,10 @@
     </div>
   </div>
 
-  <!-- الخطوات -->
-  <div class="steps">
-    <h2>كيف تثبّت التطبيق في 3 خطوات؟</h2>
-    <div class="step">
-      <div class="step-num">1</div>
-      <div>
-        <h4>اضغط على زر التحميل</h4>
-        <p>اختر نسخة الأندرويد أو الويندوز حسب جهازك. الملف هينزل في مجلد «التنزيلات».</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div>
-        <h4>اسمح بالتثبيت من مصادر غير معروفة</h4>
-        <p>لو ظهرت رسالة «هذا المصدر غير معروف» — اذهب لإعدادات الجهاز ← الأمان ← فعّل «مصادر غير معروفة».</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div>
-        <h4>سجّل دخول وابدأ الطلب</h4>
-        <p>افتح التطبيق، سجّل برقم تليفونك (مع كود الدعوة)، وتصفّح المنتجات والعروض.</p>
-      </div>
-    </div>
-  </div>
-
   <!-- البوابات — تبويبات حسب الجمهور -->
   <div class="portals" id="portals">
-    <h2>خدمات المهنيين</h2>
-    <p class="sub">بوابات مخصّصة لكل فئة — اختر تبويبك لعرض ما يخصّك فقط</p>
+    <h2>تطبيقات مساعدة لهدفك</h2>
+    <p class="sub">كل تطبيق باب يساعدك على هدفك — اختر ما يخصّك</p>
     <div class="tabs" role="tablist">
       <button class="tab active" data-tab="team" type="button">🏭 فريق العمل</button>
       <button class="tab" data-tab="reps" type="button">🧑‍💼 مسوّق المصانع</button>
@@ -422,8 +395,8 @@
 
   <!-- Footer -->
   <div class="footer">
-    <p>© 2026 NexFit — مصنع سامي رأفت</p>
-    <p style="margin-top: 6px;">هذه الصفحة تعرض دائماً أحدث إصدار متاح · واتساب الدعم بالأسفل</p>
+    <p style="font-weight:700; color:var(--primary-dark);">مدار</p>
+    <p style="margin-top: 6px;">هذه الصفحة محدّثة دائمًا · واتساب الدعم بالأسفل</p>
   </div>
 
   <!-- WhatsApp Float -->
@@ -460,7 +433,7 @@
     // روابط احتياطية ثابتة (تعمل حتى لو تعذّر قراءة الإعدادات)
     const FB_A = SB + '/storage/v1/object/public/product-images/releases/field_1783437329921.apk';
     const FB_W = SB + '/storage/v1/object/public/product-images/releases/windows_1783437353183.zip';
-    const FB_LOGO = SB + '/storage/v1/object/public/product-images/brand/logo_1782869413550.png';
+    const FB_LOGO = './app/icons/Icon-512.png';
 
     // ── كود الدعوة: كود صاحب الدعوة من الرابط (?ref=)، وإلا كود القائد 1982 ──
     (function(){
@@ -537,20 +510,19 @@
     function apply(a, w, ver, msg, logo, supportPhone){
       document.getElementById('aBtn').href = a || FB_A;
       document.getElementById('wBtn').href = w || FB_W;
-      document.getElementById('ver').textContent = ver ? ('الإصدار ' + ver) : 'أحدث إصدار';
       const apk = a || FB_A;
       document.getElementById('qr').src =
         'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(apk);
       document.getElementById('qrSide').style.display = 'block';
       if (logo){
-        document.getElementById('logo').innerHTML = '<img src="' + logo + '" alt="NexFit">';
+        document.getElementById('logo').innerHTML = '<img src="' + logo + '" alt="مدار">';
         makeCircularFavicon(logo);
       }
       const wa = normWa(supportPhone);
       if (wa){
         const el = document.getElementById('waFloat');
         el.href = 'https://wa.me/' + wa +
-          '?text=' + encodeURIComponent('مرحباً NexFit، عندي استفسار بخصوص تحميل التطبيق');
+          '?text=' + encodeURIComponent('مرحباً مدار، عندي استفسار بخصوص تحميل التطبيق');
         el.classList.add('on');
       }
     }
