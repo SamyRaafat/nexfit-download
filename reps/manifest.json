@@ -1,12 +1,12 @@
 {
-    "name": "NexFit",
-    "short_name": "NexFit",
+    "name": "مَدّار",
+    "short_name": "مَدّار",
     "start_url": "/nexfit-download/app/",
     "scope": "/nexfit-download/",
     "display": "standalone",
-    "background_color": "#0d47a1",
-    "theme_color": "#0d47a1",
-    "description": "NexFit — متجرك ومصانعك وعقاراتك ومحلّاتك في مكان واحد",
+    "background_color": "#171A20",
+    "theme_color": "#171A20",
+    "description": "مَدّار — تطبيقات كثيرة ومدّار واحد: متجرك ومورّدوك ومصانعك وعقاراتك ومحلّاتك في مكان واحد",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
