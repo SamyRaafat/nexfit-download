@@ -211,6 +211,33 @@
     .ok:disabled { opacity: 0.6; cursor: default; }
     .cancel { background: #eef2f7; color: var(--muted); }
 
+    /* زرّ ونافذة «كيف أثبّت التطبيق؟» */
+    .how-link { margin-top: 16px; background: rgba(255,255,255,0.14);
+      border: 1.5px solid rgba(255,255,255,0.45); color: #fff; font-family: 'Tajawal', sans-serif;
+      font-size: 0.9rem; font-weight: 700; padding: 11px 20px; border-radius: 30px; cursor: pointer;
+      transition: all .2s; }
+    .how-link:hover { background: rgba(255,255,255,0.26); transform: translateY(-2px); }
+    .modal.how { max-width: 440px; max-height: 88vh; overflow-y: auto; text-align: right; }
+    .how .seg { display: flex; gap: 8px; margin: 14px 0 18px; }
+    .how .seg button { flex: 1; padding: 11px; border-radius: 12px; border: 1.5px solid var(--border);
+      background: #fff; font-family: 'Tajawal', sans-serif; font-weight: 800; font-size: 0.9rem;
+      color: var(--muted); cursor: pointer; }
+    .how .seg button.on { background: var(--primary-dark); color: #fff; border-color: var(--primary-dark); }
+    .how .sp { display: none; }
+    .how .sp.on { display: block; }
+    .how .stp { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 16px; }
+    .how .stp .n { flex: none; width: 30px; height: 30px; border-radius: 50%;
+      background: var(--primary); color: #fff; font-weight: 800; display: flex;
+      align-items: center; justify-content: center; font-size: 0.95rem; }
+    .how .stp .tx { font-size: 0.9rem; line-height: 1.6; color: #233; padding-top: 3px; }
+    .how .stp .tx b { color: var(--primary-dark); }
+    .how .vid { margin: 6px 0 16px; padding: 14px; border-radius: 12px; background: #f3f6fb;
+      border: 1px dashed var(--border); text-align: center; font-size: 0.82rem; color: var(--muted); }
+    .how .vid a { color: var(--primary-dark); font-weight: 800; text-decoration: none; }
+    .how .cls { width: 100%; margin-top: 4px; padding: 13px; border-radius: 12px; border: none;
+      background: var(--primary-dark); color: #fff; font-family: 'Tajawal', sans-serif;
+      font-weight: 700; font-size: 0.92rem; cursor: pointer; }
+
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     .hero, .trust-strip, .refqr, .step, .portals { animation: fadeInUp 0.6s ease-out both; }
     .trust-strip { animation-delay: 0.1s; }
@@ -284,6 +311,7 @@
         <span>نسخة الويب للآيفون<small>بلا تثبيت — من المتصفح</small></span>
       </a>
     </div>
+    <button type="button" id="howBtn" class="how-link">❓ كيف أثبّت التطبيق على هاتفي؟</button>
   </div>
 
   <!-- شريط الثقة الموحّد -->
@@ -424,6 +452,38 @@
         <button class="cancel" type="button" id="cx">إلغاء</button>
         <button class="ok" type="button" id="go">تحميل</button>
       </div>
+    </div>
+  </div>
+
+  <!-- نافذة: كيف أثبّت التطبيق؟ -->
+  <div class="ov" id="howOv">
+    <div class="modal how">
+      <h3>📲 كيف أثبّت تطبيق مدار؟</h3>
+      <p class="sub">يعمل مدار كتطبيق على هاتفك مباشرةً من المتصفّح — اختر نوع جهازك واتبع الخطوات.</p>
+      <div class="seg">
+        <button type="button" class="on" data-sp="android">🤖 أندرويد</button>
+        <button type="button" data-sp="ios">🍏 آيفون</button>
+      </div>
+
+      <div class="sp on" id="sp-android">
+        <div class="stp"><div class="n">١</div><div class="tx">افتح الرابط <b>madar.app</b> في متصفّح <b>Chrome</b>.</div></div>
+        <div class="stp"><div class="n">٢</div><div class="tx">اضغط زرّ القائمة <b>⋮</b> (الثلاث نقاط) أعلى اليمين.</div></div>
+        <div class="stp"><div class="n">٣</div><div class="tx">اختر <b>«تثبيت التطبيق»</b> أو <b>«إضافة إلى الشاشة الرئيسية»</b>.</div></div>
+        <div class="stp"><div class="n">٤</div><div class="tx">اضغط <b>تثبيت</b> — وستظهر أيقونة «مدار» على شاشتك. ✅</div></div>
+      </div>
+
+      <div class="sp" id="sp-ios">
+        <div class="stp"><div class="n">١</div><div class="tx">افتح الرابط <b>madar.app</b> في متصفّح <b>Safari</b> (مهمّ — ليس Chrome).</div></div>
+        <div class="stp"><div class="n">٢</div><div class="tx">اضغط زرّ <b>المشاركة ⬆️</b> في شريط Safari السفلي.</div></div>
+        <div class="stp"><div class="n">٣</div><div class="tx">مرّر واختر <b>«إضافة إلى الشاشة الرئيسية»</b>.</div></div>
+        <div class="stp"><div class="n">٤</div><div class="tx">اضغط <b>«إضافة»</b> — وستظهر أيقونة «مدار» على شاشتك. ✅</div></div>
+      </div>
+
+      <div class="vid" id="howVid" style="display:none">
+        🎬 شاهد الشرح بالفيديو: <a href="#" id="howVidLink" target="_blank" rel="noopener">افتح الفيديو</a>
+      </div>
+
+      <button type="button" class="cls" id="howCls">فهمت، إغلاق</button>
     </div>
   </div>
 
@@ -592,6 +652,29 @@
     function closeGate(){ ov.classList.remove('on'); pw.value = ''; }
     document.getElementById('erpBtn').addEventListener('click', openGate);
     document.getElementById('cx').addEventListener('click', closeGate);
+
+    /* نافذة «كيف أثبّت التطبيق؟» */
+    const howOv = document.getElementById('howOv');
+    function openHow(){ howOv.classList.add('on'); }
+    function closeHow(){ howOv.classList.remove('on'); }
+    document.getElementById('howBtn').addEventListener('click', openHow);
+    document.getElementById('howCls').addEventListener('click', closeHow);
+    howOv.addEventListener('click', e => { if (e.target === howOv) closeHow(); });
+    document.querySelectorAll('.how .seg button').forEach(b => {
+      b.addEventListener('click', () => {
+        document.querySelectorAll('.how .seg button').forEach(x => x.classList.remove('on'));
+        document.querySelectorAll('.how .sp').forEach(x => x.classList.remove('on'));
+        b.classList.add('on');
+        document.getElementById('sp-' + b.dataset.sp).classList.add('on');
+      });
+    });
+    /* فور توفّر رابط فيديو الشرح، ضَع الرابط هنا ليظهر زرّ الفيديو تلقائياً */
+    const HOW_VIDEO_URL = '';
+    if (HOW_VIDEO_URL) {
+      document.getElementById('howVidLink').href = HOW_VIDEO_URL;
+      document.getElementById('howVid').style.display = 'block';
+    }
+
     ov.addEventListener('click', e => { if (e.target === ov) closeGate(); });
     pw.addEventListener('keydown', e => { if (e.key === 'Enter') go.click(); });
     go.addEventListener('click', async () => {
