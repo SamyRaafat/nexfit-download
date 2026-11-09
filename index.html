@@ -87,7 +87,8 @@ a{color:inherit}
 .hero-grid{display:grid;gap:2.5rem;align-items:center}
 @media(min-width:900px){.hero-grid{grid-template-columns:1.15fr .85fr}}
 .logo-row{display:flex;align-items:center;gap:.9rem;margin-bottom:1.6rem}
-.logo-emblem{width:64px;height:64px;flex:none;filter:drop-shadow(0 4px 12px rgba(214,161,58,.4))}
+.logo-emblem{width:64px;height:64px;flex:none;display:inline-flex;align-items:center;justify-content:center;filter:drop-shadow(0 4px 12px rgba(214,161,58,.4))}
+.logo-emblem img{width:100%;height:100%;object-fit:contain}
 .logo-name{font-family:"Cairo";font-weight:800;font-size:2rem;letter-spacing:.5px}
 .logo-name small{display:block;font-family:"IBM Plex Sans Arabic";font-weight:400;font-size:.8rem;color:var(--gold-2);letter-spacing:2px}
 .hero h1{font-size:clamp(1.9rem,5.5vw,3.1rem);font-weight:800}
@@ -97,10 +98,10 @@ a{color:inherit}
 .hero-note{font-size:.85rem;color:#9fb4c9}
 
 /* ---- نظام مداري واقعي: النواة «مدار» + مدارات بيضاوية مائلة ---- */
-.orbit-wrap{position:relative;width:min(360px,82vw);aspect-ratio:1;margin-inline:auto}
+.orbit-wrap{position:relative;width:min(380px,86vw);aspect-ratio:1;margin-inline:auto}
 /* النواة = مدار */
 .orbit-core{
-  position:absolute;inset:36%;border-radius:50%;z-index:5;
+  position:absolute;inset:40%;border-radius:50%;z-index:5;
   background:radial-gradient(circle at 35% 30%,var(--gold-2),var(--gold) 55%,#8a6420);
   box-shadow:0 0 44px rgba(214,161,58,.6),inset 0 0 20px rgba(255,255,255,.3);
   display:flex;align-items:center;justify-content:center;
@@ -112,9 +113,9 @@ a{color:inherit}
   position:absolute;border:1px dashed rgba(214,161,58,.4);border-radius:50%;
   transform:rotate(var(--tilt)) scaleY(var(--flat));
 }
-.ring-a{inset:22%;--tilt:-20deg;--flat:.50;--dur:20s}
-.ring-b{inset:8%;--tilt:26deg;--flat:.46;--dur:30s}
-.ring-c{inset:-6%;--tilt:6deg;--flat:.42;--dur:42s}
+.ring-a{inset:10%;--tilt:-20deg;--flat:.60;--dur:20s}
+.ring-b{inset:-4%;--tilt:26deg;--flat:.54;--dur:30s}
+.ring-c{inset:-16%;--tilt:6deg;--flat:.48;--dur:42s}
 /* طبقة دوران (كوكب واحد لكلّ طبقة؛ الطبقة الثانية مُزاحة نصف دورة) */
 .spin{position:absolute;inset:0;animation:spin var(--dur) linear infinite}
 .spin.b{animation-delay:calc(var(--dur) / -2)}
@@ -201,7 +202,8 @@ a{color:inherit}
 .howto{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-md);
   padding:2rem;margin-top:2rem;border:1px solid rgba(8,43,80,.06)}
 .howto[hidden]{display:none}
-.tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.howto h3{text-align:right}
+.tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.5rem;justify-content:flex-start}
 .tab{
   padding:.6rem 1.3rem;border-radius:999px;border:1.5px solid rgba(8,43,80,.2);
   background:transparent;color:var(--navy);font-weight:700;cursor:pointer;font-family:inherit;font-size:.95rem;
@@ -210,6 +212,8 @@ a{color:inherit}
 .tab.active{background:var(--navy);color:var(--gold);border-color:var(--navy)}
 .tab-panel{display:none}
 .tab-panel.active{display:block;animation:fadeUp .4s ease}
+.tab-panel.steps.active{display:grid;gap:.9rem}
+.howto .tab-panel:not(.active){display:none}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .steps{counter-reset:s;list-style:none;display:grid;gap:.9rem}
 .steps li{
@@ -298,15 +302,17 @@ footer small{display:block;margin-top:.5rem;font-size:.8rem}
   <div class="container hero-grid">
     <div class="reveal in">
       <div class="logo-row">
-        <!-- إمبلم مدار: كلمة «مدار» داخل مدارات ذهبية + كرة ذهبية -->
-        <svg class="logo-emblem" viewBox="0 0 100 100" aria-hidden="true">
-          <circle cx="50" cy="50" r="46" fill="none" stroke="#D6A13A" stroke-width="2.5"/>
-          <ellipse cx="50" cy="50" rx="46" ry="17" fill="none" stroke="#D6A13A" stroke-width="1.5" opacity=".7" transform="rotate(-24 50 50)"/>
-          <ellipse cx="50" cy="50" rx="46" ry="17" fill="none" stroke="#D6A13A" stroke-width="1.5" opacity=".45" transform="rotate(32 50 50)"/>
-          <circle cx="50" cy="50" r="22" fill="#0d3a68"/>
-          <text x="50" y="58" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="800" font-size="19" fill="#D6A13A">مدار</text>
-          <circle cx="88" cy="30" r="6" fill="#D6A13A"/>
-        </svg>
+        <!-- إمبلم مدار (بديل) — يُستبدل بشعار ERP (app_config.logo_url) عند توفّره -->
+        <span class="logo-emblem" id="heroLogo">
+          <svg viewBox="0 0 100 100" aria-hidden="true" style="width:100%;height:100%">
+            <circle cx="50" cy="50" r="46" fill="none" stroke="#D6A13A" stroke-width="2.5"/>
+            <ellipse cx="50" cy="50" rx="46" ry="17" fill="none" stroke="#D6A13A" stroke-width="1.5" opacity=".7" transform="rotate(-24 50 50)"/>
+            <ellipse cx="50" cy="50" rx="46" ry="17" fill="none" stroke="#D6A13A" stroke-width="1.5" opacity=".45" transform="rotate(32 50 50)"/>
+            <circle cx="50" cy="50" r="22" fill="#0d3a68"/>
+            <text x="50" y="58" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="800" font-size="19" fill="#D6A13A">مدار</text>
+            <circle cx="88" cy="30" r="6" fill="#D6A13A"/>
+          </svg>
+        </span>
         <div class="logo-name">مدار<small>MADAR.APP</small></div>
       </div>
       <h1>تطبيقات كثيرة…<br><span class="gold">ومدار واحد</span></h1>
@@ -397,19 +403,19 @@ footer small{display:block;margin-top:.5rem;font-size:.8rem}
         <button class="tab" role="tab" onclick="showHowto(1)">آيفون</button>
         <button class="tab" role="tab" onclick="showHowto(2)">كمبيوتر</button>
       </div>
-      <ol class="tab-panel active">
+      <ol class="tab-panel steps active">
         <li>افتح موقع <b>madar.app</b> من متصفح <b>Chrome</b>.</li>
         <li>اضغط زر القائمة <b>⋮</b> أعلى اليمين ← «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».</li>
         <li>أكّد التثبيت — تظهر أيقونة مدار على شاشتك كأي تطبيق.</li>
         <li>سجّل دخولك برقم هاتفك، وأدخل كود الدعوة إن كان لديك — والتطبيق يتحدّث وحده دائمًا.</li>
       </ol>
-      <ol class="tab-panel">
+      <ol class="tab-panel steps">
         <li>افتح موقع <b>madar.app</b> من متصفح سفاري على الآيفون.</li>
         <li>اضغط زر المشاركة <b>⎋</b> ثم اختر «إضافة إلى الشاشة الرئيسية».</li>
         <li>ستجد أيقونة مدار مع تطبيقاتك — افتحها كأي تطبيق عادي.</li>
         <li>لا تحميل ولا تحديثات يدوية — النسخة الويب تتحدث وحدها.</li>
       </ol>
-      <ol class="tab-panel">
+      <ol class="tab-panel steps">
         <li>افتح موقع <b>madar.app</b> في متصفح <b>Chrome</b> أو <b>Edge</b> على الكمبيوتر.</li>
         <li>اضغط أيقونة <b>التثبيت ⊕</b> في يمين شريط العنوان، أو من قائمة المتصفح ← «تثبيت مدار».</li>
         <li>يفتح مدار كتطبيق مستقلّ على سطح المكتب — بنفس حسابك، ويتحدّث وحده.</li>
@@ -457,16 +463,11 @@ footer small{display:block;margin-top:.5rem;font-size:.8rem}
         <span class="ic">🏘️</span>
         <div>
           <h4>سوق العقارات</h4>
-          <p>قائمة عقارات محدّثة يوميًا بالسوق المصري — ابحث بالمنطقة والسعر وتواصل مباشرة.</p>
-          <a class="btn btn-ghost" href="./estate/#/market" style="padding:.55rem 1.3rem;font-size:.9rem;color:var(--gold-2);border-color:rgba(214,161,58,.4)">تصفّح السوق</a>
-        </div>
-      </div>
-      <div class="app-feature">
-        <span class="ic">🔍</span>
-        <div>
-          <h4>ابحث عن مطوّر بالكود</h4>
-          <p>كل مطوّر له كود خاص — زوّرك يكتب كودك ويشاهد مشاريعك فورًا. أداة تسويق في جيبك.</p>
-          <a class="btn btn-ghost" href="./estate/#/find" style="padding:.55rem 1.3rem;font-size:.9rem;color:var(--gold-2);border-color:rgba(214,161,58,.4)">ابحث بالكود</a>
+          <p>قائمة عقارات محدّثة يوميًا بالسوق المصري — ابحث بالمنطقة والسعر وتواصل مباشرة. وبداخله: <b>ابحث عن مطوّر بالكود</b> — اكتب كود المطوّر لرؤية كل وحداته فورًا.</p>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+            <a class="btn btn-gold" href="./estate/#/market" style="padding:.55rem 1.3rem;font-size:.9rem">تصفّح السوق</a>
+            <a class="btn btn-ghost" href="./estate/#/find" style="padding:.55rem 1.3rem;font-size:.9rem;color:var(--gold-2);border-color:rgba(214,161,58,.4)">ابحث بالكود</a>
+          </div>
         </div>
       </div>
     </div>
