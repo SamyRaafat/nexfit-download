@@ -87,7 +87,7 @@ a{color:inherit}
 .hero-grid{display:grid;gap:2.5rem;align-items:center}
 @media(min-width:900px){.hero-grid{grid-template-columns:1.15fr .85fr}}
 .logo-row{display:flex;align-items:center;gap:.9rem;margin-bottom:1.6rem}
-.logo-emblem{width:64px;height:64px;flex:none;display:inline-flex;align-items:center;justify-content:center;filter:drop-shadow(0 4px 12px rgba(214,161,58,.4))}
+.logo-emblem{width:clamp(80px,9vw,100px);height:clamp(80px,9vw,100px);flex:none;display:inline-flex;align-items:center;justify-content:center;filter:drop-shadow(0 4px 12px rgba(214,161,58,.4))}
 .logo-emblem img{width:100%;height:100%;object-fit:contain}
 .logo-name{font-family:"Cairo";font-weight:800;font-size:2rem;letter-spacing:.5px}
 .logo-name small{display:block;font-family:"IBM Plex Sans Arabic";font-weight:400;font-size:.8rem;color:var(--gold-2);letter-spacing:2px}
@@ -258,14 +258,14 @@ footer small{display:block;margin-top:.5rem;font-size:.8rem}
 
 /* ============ زر واتساب العائم ============ */
 .wa-float{
-  position:fixed;bottom:1.4rem;inset-inline-start:1.4rem;z-index:50;
+  position:fixed;bottom:1.4rem;inset-inline-end:1.4rem;z-index:50;
   width:58px;height:58px;border-radius:50%;background:#25D366;
   display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.45);
   transition:transform .2s;
 }
 .wa-float:hover{transform:scale(1.08)}
 .wa-float svg{width:30px;height:30px;fill:#fff}
-@media(min-width:900px){.wa-float{bottom:2rem;inset-inline-start:2rem}}
+@media(min-width:900px){.wa-float{bottom:2rem;inset-inline-end:2rem}}
 
 @media(max-width:480px){
   .dl-buttons .btn{width:100%}
@@ -351,7 +351,7 @@ footer small{display:block;margin-top:.5rem;font-size:.8rem}
         </div>
         <div class="orbit-core">سوق مدار</div>
       </div>
-      <p class="orbit-caption"><b>سوق مدار</b> في القلب… وحوله تطبيقاتك: المورّدون والمصانع والعقارات والمحلّات — <span style="opacity:.8">و🚧 تطبيقان جديدان قريبًا</span></p>
+      <p class="orbit-caption"><b>سوق مدار</b> في القلب… وحوله تطبيقاتك: المورّدون والمصانع والعقارات والمحلّات — <span style="opacity:.8">🚧 وتطبيقان جديدان قريبًا</span></p>
     </div>
   </div>
 </header>
