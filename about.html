@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>من نحن — مدار</title>
+<link rel="icon" type="image/png" id="fav" href="./app/icons/Icon-512.png">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#082B50; --navy-2:#0d3a68; --gold:#D6A13A; --gold-2:#e9c06a;
+    --ivory:#F6F4EF; --white:#fff; --muted:#5b6b7d; --border:#e3e8ef;
+    --card:#fff; --shadow:0 10px 30px rgba(8,43,80,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Cairo","IBM Plex Sans Arabic",sans-serif;background:var(--ivory);color:#16222f;line-height:1.7}
+  .wrap{max-width:860px;margin-inline:auto;padding:16px}
+  .hero{background:radial-gradient(900px 500px at 80% -10%,#10457c 0%,var(--navy) 55%,#061f3a 100%);
+    color:#fff;border-radius:22px;padding:34px 22px;text-align:center;margin-top:12px;box-shadow:var(--shadow)}
+  .emblem{width:92px;height:92px;margin:0 auto 12px;border-radius:24px;background:#fff;
+    display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  .emblem img{width:100%;height:100%;object-fit:contain}
+  .brand{font-size:2rem;font-weight:800}
+  .brand small{display:block;font-weight:400;font-size:.8rem;color:var(--gold-2);letter-spacing:2px;margin-top:2px}
+  .tagline{color:#cfe0f1;margin-top:10px;font-size:1.02rem}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px;margin-top:16px;box-shadow:var(--shadow)}
+  .card h2{color:var(--navy);font-size:1.25rem;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .card h2::before{content:"";width:6px;height:22px;background:var(--gold);border-radius:4px}
+  .about-body p{margin-bottom:12px;color:#25343f}
+  .gateways{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:6px}
+  .gw{display:flex;gap:10px;align-items:center;background:var(--ivory);border:1px solid var(--border);border-radius:14px;padding:12px}
+  .gw .ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex:none}
+  .gw b{font-size:.95rem;color:var(--navy)}
+  .gw span{display:block;font-size:.76rem;color:var(--muted)}
+  .core{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-color:transparent}
+  .core b{color:#fff}.core span{color:var(--gold-2)}
+  .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  .btn{flex:1;min-width:180px;text-align:center;padding:14px;border-radius:14px;font-weight:700;
+    text-decoration:none;font-size:.98rem;transition:.2s}
+  .btn-gold{background:linear-gradient(135deg,var(--gold),#c08f2a);color:var(--navy)}
+  .btn-gold:hover{transform:translateY(-2px)}
+  .btn-navy{background:var(--navy);color:#fff}
+  .btn-navy:hover{background:var(--navy-2)}
+  .btn-wa{background:#25d366;color:#fff}
+  .foot{text-align:center;color:var(--muted);font-size:.82rem;padding:22px 0 10px}
+  .foot a{color:var(--navy);font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="emblem" id="emblem">
+      <svg viewBox="0 0 100 100" aria-hidden="true" style="width:86%;height:86%">
+        <circle cx="50" cy="50" r="46" fill="none" stroke="#D6A13A" stroke-width="3"/>
+        <ellipse cx="50" cy="50" rx="46" ry="17" fill="none" stroke="#D6A13A" stroke-width="2" opacity=".7" transform="rotate(-24 50 50)"/>
+        <circle cx="50" cy="50" r="22" fill="#0d3a68"/>
+        <text x="50" y="58" text-anchor="middle" font-family="Cairo" font-weight="800" font-size="18" fill="#D6A13A">مدار</text>
+        <circle cx="88" cy="30" r="6" fill="#D6A13A"/>
+      </svg>
+    </div>
+    <div class="brand" id="brandName">مدار<small>MADAR.APP</small></div>
+    <p class="tagline" id="tagline">تطبيقات كثيرة… ومدار واحد</p>
+  </header>
+
+  <section class="card">
+    <h2>من نحن</h2>
+    <div class="about-body" id="aboutBody">
+      <p><b>مدار</b> منصّة تجمع كل ما يحتاجه المستفيد حول <b>سوق مدار</b> — القلب الذي تدور حوله تطبيقاتنا.
+      هدفنا أن نحشد المستفيدين في مكان واحد: متجرٌ للخامات والتجهيزات، وأبواب دخول متنوّعة تخدم كل فئة
+      (مصانع، عقارات، محلّات، مورّدون) — كلّها بحساب واحد وتجربة واحدة.</p>
+      <p>نؤمن أن تعدّد التطبيقات لا يعني تشتّت المستخدم؛ لذلك جعلنا <b>سوق مدار</b> نواةً مشتركة، وبنينا حولها
+      تطبيقات متخصّصة تفتح بنقرة، وتتحدّث تلقائيًّا، بلا متاجر تطبيقات.</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>بوّاباتنا</h2>
+    <div class="gateways">
+      <div class="gw core"><div class="ic" style="background:#D6A13A">🛒</div><div><b>سوق مدار</b><span>النواة — المتجر</span></div></div>
+      <div class="gw"><div class="ic" style="background:#E4572E">🚚</div><div><b>مورّد</b><span>بوابة المورّدين</span></div></div>
+      <div class="gw"><div class="ic" style="background:#2E9E5B">🏭</div><div><b>مصانع</b><span>منتجات المصانع</span></div></div>
+      <div class="gw"><div class="ic" style="background:#7B61FF">🏢</div><div><b>عقارات</b><span>سوق العقارات</span></div></div>
+      <div class="gw"><div class="ic" style="background:#8A8F98">🛍️</div><div><b>محلات</b><span>المحلّات والمناديب</span></div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>ابدأ الآن</h2>
+    <div class="cta">
+      <a class="btn btn-gold" href="./">حمّل التطبيقات</a>
+      <a class="btn btn-navy" href="./app/">افتح سوق مدار</a>
+      <a class="btn btn-wa" id="waBtn" href="#" target="_blank" rel="noopener" style="display:none">تواصل واتساب</a>
+    </div>
+  </section>
+
+  <p class="foot">مدار — <a href="./">madar.app</a></p>
+</div>
+
+<script>
+const SB='https://mwzjxjmvokdeijwnaesk.supabase.co';
+const KEY='sb_publishable_yAMh2iapZYTYwxycO9FSPA_cWNuuEP2';
+function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+function normWa(p){let d=(p||'').replace(/\D/g,'');if(!d)return '';if(d.startsWith('00'))d=d.slice(2);if(d.startsWith('0'))d='20'+d.slice(1);if(!d.startsWith('20'))d='20'+d;return d;}
+const H={apikey:KEY,Authorization:'Bearer '+KEY};
+// الحقول الأساسية (موجودة دائمًا)
+fetch(SB+'/rest/v1/app_config?id=eq.1&select=logo_url,brand_name,tagline,support_phone',{headers:H})
+  .then(r=>r.json()).then(a=>{
+    const c=a&&a[0];if(!c)return;
+    if(c.logo_url){document.getElementById('emblem').innerHTML='<img src="'+c.logo_url+'" alt="مدار">';
+      const f=document.getElementById('fav');if(f)f.href=c.logo_url;}
+    if(c.brand_name){document.getElementById('brandName').innerHTML=esc(c.brand_name)+'<small>MADAR.APP</small>';}
+    if(c.tagline){document.getElementById('tagline').textContent=c.tagline;}
+    if(c.support_phone){const w=normWa(c.support_phone);if(w){const b=document.getElementById('waBtn');
+      b.href='https://wa.me/'+w;b.style.display='';}}
+  }).catch(()=>{});
+// نصّ «من نحن» من ERP (اختياري — يُتجاهَل بهدوء إن لم يكن العمود موجودًا بعد)
+fetch(SB+'/rest/v1/app_config?id=eq.1&select=about_body',{headers:H})
+  .then(r=>r.ok?r.json():null).then(a=>{
+    const t=a&&a[0]&&a[0].about_body;
+    if(t&&t.trim()){document.getElementById('aboutBody').innerHTML=
+      t.split(/\n{2,}|\r?\n/).filter(x=>x.trim()).map(x=>'<p>'+esc(x.trim())+'</p>').join('');}
+  }).catch(()=>{});
+</script>
+</body>
+</html>

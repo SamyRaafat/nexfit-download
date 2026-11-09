@@ -99,14 +99,14 @@ a{color:inherit}
 
 /* ---- نظام مداري واقعي: النواة «مدار» + مدارات بيضاوية مائلة ---- */
 .orbit-wrap{position:relative;width:min(380px,86vw);aspect-ratio:1;margin-inline:auto}
-/* النواة = مدار */
+/* النواة = سوق مدار (المتجر) */
 .orbit-core{
-  position:absolute;inset:40%;border-radius:50%;z-index:5;
+  position:absolute;inset:37%;border-radius:50%;z-index:5;text-align:center;
   background:radial-gradient(circle at 35% 30%,var(--gold-2),var(--gold) 55%,#8a6420);
   box-shadow:0 0 44px rgba(214,161,58,.6),inset 0 0 20px rgba(255,255,255,.3);
-  display:flex;align-items:center;justify-content:center;
-  font-weight:800;font-family:"Cairo";color:var(--navy);
-  font-size:clamp(1rem,3vw,1.35rem);letter-spacing:.5px;
+  display:flex;align-items:center;justify-content:center;padding:6px;
+  font-weight:800;font-family:"Cairo";color:var(--navy);line-height:1.15;
+  font-size:clamp(.82rem,2.3vw,1.02rem);letter-spacing:.3px;
 }
 /* المدار: حلقة بيضاوية مائلة (tilt + تسطيح) — تحمل مسار الكواكب وحدّه المرسوم */
 .orbit{
@@ -139,6 +139,7 @@ a{color:inherit}
   content:"🚧";position:absolute;bottom:-9px;right:-9px;font-size:.72rem;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.spin,.sat{animation:none!important}}
 .orbit-caption{text-align:center;color:#9fb4c9;font-size:.85rem;margin-top:1.4rem}
 .orbit-caption b{color:var(--gold)}
 
@@ -226,8 +227,8 @@ a{color:inherit}
 }
 
 /* ============ التطبيقات المساعدة (المدارات) ============ */
-.apps{background:var(--charcoal);color:var(--ivory);border-radius:28px;margin:0 4%;padding:4rem 0}
-@media(min-width:760px){.apps{margin:0 2.5%}}
+.apps{background:var(--charcoal);color:var(--ivory);border-radius:28px;margin:0 4% 3.5rem;padding:4rem 0}
+@media(min-width:760px){.apps{margin:0 2.5% 3.5rem}}
 .apps .section-title{color:var(--white)}
 .apps .section-sub{color:#a7b0bd}
 .apps-tabs{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin:2rem 0}
@@ -333,9 +334,9 @@ footer small{display:block;margin-top:.5rem;font-size:.8rem}
     <!-- النظام المداري: المتجر في المركز والتطبيقات تدور حوله -->
     <div class="reveal in" aria-hidden="true">
       <div class="orbit-wrap">
-        <!-- المدار الداخلي: المتجر + المصانع -->
+        <!-- المدار الداخلي: المورّد + المصانع -->
         <div class="orbit ring-a">
-          <div class="spin"><div class="sat"><div class="planet">🛒</div></div></div>
+          <div class="spin"><div class="sat"><div class="planet">🚚</div></div></div>
           <div class="spin b"><div class="sat"><div class="planet">🏭</div></div></div>
         </div>
         <!-- المدار الأوسط: العقارات + المحلّات -->
@@ -348,9 +349,9 @@ footer small{display:block;margin-top:.5rem;font-size:.8rem}
           <div class="spin"><div class="sat"><div class="planet soon">⏳</div></div></div>
           <div class="spin b"><div class="sat"><div class="planet soon">✨</div></div></div>
         </div>
-        <div class="orbit-core">مدار</div>
+        <div class="orbit-core">سوق مدار</div>
       </div>
-      <p class="orbit-caption"><b>مدار</b> في القلب… وحوله تطبيقاتك: المتجر والمصانع والعقارات والمحلّات — <span style="opacity:.8">و🚧 تطبيقان جديدان قريبًا</span></p>
+      <p class="orbit-caption"><b>سوق مدار</b> في القلب… وحوله تطبيقاتك: المورّدون والمصانع والعقارات والمحلّات — <span style="opacity:.8">و🚧 تطبيقان جديدان قريبًا</span></p>
     </div>
   </div>
 </header>
