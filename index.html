@@ -294,6 +294,27 @@ footer small{display:block;margin-top:.5rem;font-size:.8rem}
 .acts .ok{background:var(--navy);color:#fff}
 .acts .ok:disabled{opacity:.6;cursor:default}
 .acts .cancel{background:#eef2f7;color:#6b7280}
+
+/* ===== ادخل مباشرة: سوق مدار ثابت + تطبيقاتنا (من apps_catalog) ===== */
+.enter{padding:2.2rem 0 1rem}
+.enter .wrap{max-width:760px;margin-inline:auto;padding-inline:16px}
+.app-row{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e3e8ef;
+  border-radius:18px;padding:12px 14px;margin-bottom:10px;box-shadow:0 4px 14px rgba(8,43,80,.06)}
+.app-row.core{background:linear-gradient(135deg,#082B50,#0d3a68);border-color:transparent;padding:16px}
+.app-ico{flex:none;width:52px;height:52px;border-radius:15px;display:flex;align-items:center;
+  justify-content:center;font-size:26px;color:#fff}
+.app-go{flex:1;text-decoration:none;color:#082B50;min-width:0}
+.app-go b{display:block;font-size:1.05rem;font-weight:800}
+.app-go span{display:block;font-size:.8rem;color:#5b6b7d}
+.app-row.core .app-go,.app-row.core .app-go span{color:#fff}
+.app-row.core .app-go span{color:#e9c06a}
+.app-about{flex:none;display:inline-flex;align-items:center;gap:5px;text-decoration:none;
+  font-size:.8rem;font-weight:700;color:#082B50;background:#F6F4EF;border:1px solid #e3e8ef;
+  padding:8px 11px;border-radius:12px}
+.app-row.core .app-about{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.3)}
+.app-open{flex:none;font-size:1.3rem;color:#D6A13A;text-decoration:none;padding:0 4px}
+.enter h3{color:#082B50;font-size:1.1rem;margin:18px 4px 10px;display:flex;align-items:center;gap:8px}
+.enter h3::before{content:"";width:5px;height:20px;background:#D6A13A;border-radius:3px}
 </style>
 </head>
 <body>
@@ -319,7 +340,7 @@ footer small{display:block;margin-top:.5rem;font-size:.8rem}
       <h1>تطبيقات كثيرة…<br><span class="gold">ومدار واحد</span></h1>
       <p class="hero-sub">متجر + تطبيقات تساعدك على هدفك — تشطيب وديكور، مورّدون ومصانع، عقارات وفريق عمل… كلها تدور حول متجرك في مدار واحد.</p>
       <div class="dl-buttons">
-        <a class="btn btn-gold" href="./app/" id="openApp" aria-label="افتح مدار">
+        <a class="btn btn-gold" href="#enter" id="openApp" aria-label="افتح مدار">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2c1.1 0 2.8 2.1 3.3 6H8.7C9.2 8.1 10.9 6 12 6zm-5.9 6H8c.1 1.4.3 2.8.7 4H6.9A8 8 0 016.1 12zm.8-2a8 8 0 01.8-2h1.8c-.4 1.2-.6 2.6-.7 4H6.9zM12 20c-1.1 0-2.8-2.1-3.3-6h6.6c-.5 3.9-2.2 6-3.3 6zm3.3-8H8.7c-.1-1.4.1-2.8.4-4h5.8c.3 1.2.5 2.6.4 4zm1.9 4h-1.8c.4-1.2.6-2.6.7-4h1.9a8 8 0 01-.8 4zm-1.1-6c-.1-1.4-.3-2.8-.7-4h1.5a8 8 0 01.8 4h-1.6z"/></svg>
           افتح مدار الآن
         </a>
@@ -357,6 +378,16 @@ footer small{display:block;margin-top:.5rem;font-size:.8rem}
 </header>
 
 <!-- ==================== شريط الثقة ==================== -->
+
+<!-- ==================== ادخل مباشرة ==================== -->
+<section class="enter" id="enter">
+  <div class="wrap">
+    <h2 class="section-title" style="text-align:center">ادخل مباشرةً</h2>
+    <div id="coreRow"></div>
+    <h3>تطبيقاتنا</h3>
+    <div id="appsRows"></div>
+  </div>
+</section>
 <section class="trust">
   <div class="container trust-grid">
     <div class="trust-item reveal">
@@ -655,6 +686,50 @@ window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPro
       window.location.href=SB+'/storage/v1/object/public/product-images/releases/'+obj;
     }finally{go.disabled=false;go.textContent='تحميل';}
   });
+})();
+</script>
+
+<script>
+/* ادخل مباشرة — من apps_catalog (أي تطبيق جديد يظهر تلقائيًّا) */
+(function(){
+  var META = {
+    store:   {ico:'🛒', color:'#D6A13A', sub:'النواة — تسوّق خامات التشطيب والديكور', guide:'store-guide.html', title:'سوق مدار'},
+    supplier:{ico:'🚚', color:'#E4572E', sub:'لديك خامات؟ اعرض منتجاتك', guide:'supplier-guide.html'},
+    reps:    {ico:'🏭', color:'#2E9E5B', sub:'لديك مصنع؟ متجرك داخل سوق مدار', guide:'factory-guide.html'},
+    estate:  {ico:'🏢', color:'#7B61FF', sub:'لديك عقارات؟ معرض وحداتك', guide:'estate-guide.html'},
+    portal:  {ico:'🛍️', color:'#8A8F98', sub:'لديك محل؟ اطلب واكسب كمندوب', guide:'portal-guide.html'}
+  };
+  var FALLBACK = [
+    {key:'store',name:'المتجر',url:'./app/?shop=1'},
+    {key:'supplier',name:'صفحة المورّد',url:'./app/'},
+    {key:'reps',name:'منتجات المصانع',url:'./reps/'},
+    {key:'estate',name:'العقارات',url:'./estate/'},
+    {key:'portal',name:'بوابة المحلّات والمناديب',url:'./portal/'}
+  ];
+  function esc(t){var d=document.createElement('div');d.textContent=t||'';return d.innerHTML;}
+  function row(a, core){
+    var m = META[a.key] || {ico:'✨', color:'#082B50', sub:'تطبيق جديد من مدار', guide:'about.html'};
+    var name = core && m.title ? m.title : a.name;
+    return '<div class="app-row'+(core?' core':'')+'">'
+      + '<a class="app-ico" style="background:'+m.color+'" href="'+esc(a.url)+'" aria-hidden="true">'+m.ico+'</a>'
+      + '<a class="app-go" href="'+esc(a.url)+'"><b>'+esc(name)+'</b><span>'+esc(m.sub)+'</span></a>'
+      + '<a class="app-about" href="./'+m.guide+'" title="عن التطبيق">📖 عن التطبيق</a>'
+      + '</div>';
+  }
+  function render(list){
+    var core = list.filter(function(a){return a.key==='store';})[0];
+    var rest = list.filter(function(a){return a.key!=='store';});
+    document.getElementById('coreRow').innerHTML = core ? row(core,true) : '';
+    document.getElementById('appsRows').innerHTML = rest.map(function(a){return row(a,false);}).join('');
+  }
+  render(FALLBACK);
+  try{
+    fetch(SB+'/rest/v1/apps_catalog?select=key,name,url,sort_order&is_active=eq.true&order=sort_order',
+      {headers:{apikey:KEY,Authorization:'Bearer '+KEY}})
+      .then(function(r){return r.ok?r.json():null;})
+      .then(function(d){ if(d && d.length) render(d); })
+      .catch(function(){});
+  }catch(e){}
 })();
 </script>
 </body>
