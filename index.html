@@ -315,6 +315,24 @@ footer small{display:block;margin-top:.5rem;font-size:.8rem}
 .app-open{flex:none;font-size:1.3rem;color:#D6A13A;text-decoration:none;padding:0 4px}
 .enter h3{color:#082B50;font-size:1.1rem;margin:18px 4px 10px;display:flex;align-items:center;gap:8px}
 .enter h3::before{content:"";width:5px;height:20px;background:#D6A13A;border-radius:3px}
+
+/* ===== شبكة التطبيقات + نبذة + «عن التطبيق» ===== */
+.apps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;
+  max-width:1000px;margin:2rem auto 0;text-align:right}
+.app-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;
+  padding:20px;display:flex;flex-direction:column;gap:10px;text-align:right}
+.app-card.team{max-width:1000px;margin:16px auto 0}
+.ac-head{display:flex;align-items:center;gap:12px}
+.ac-ico{flex:none;width:48px;height:48px;border-radius:14px;display:flex;align-items:center;
+  justify-content:center;font-size:24px}
+.app-card h4{color:var(--gold-2);font-size:1.08rem;font-weight:800;margin:0}
+.app-card p{color:#c9d3df;font-size:.92rem;line-height:1.7;margin:0;flex:1}
+.ac-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.ac-btn{padding:.55rem 1.2rem!important;font-size:.88rem!important}
+.ac-about{display:inline-flex;align-items:center;gap:6px;padding:.55rem 1.1rem;border-radius:12px;
+  font-size:.88rem;font-weight:700;text-decoration:none;color:var(--gold-2);
+  border:1px solid rgba(214,161,58,.4)}
+.ac-about:hover{background:rgba(214,161,58,.1)}
 </style>
 </head>
 <body>
@@ -458,66 +476,13 @@ footer small{display:block;margin-top:.5rem;font-size:.8rem}
   <div class="container" style="text-align:center">
     <span class="eyebrow reveal" style="background:rgba(214,161,58,.12);color:var(--gold-2)">مدارات حول متجرك</span>
     <h2 class="section-title reveal">تطبيقات مساعدة لهدفك</h2>
-    <p class="section-sub reveal">اختر مدارك: كل جمهور له تطبيق يساعده… وكلها تلتقي عند المتجر.</p>
-
-    <div class="apps-tabs reveal" role="tablist">
-      <button class="apps-tab active" onclick="showApp(0)">🏭 مسوّق المصانع</button>
-      <button class="apps-tab" onclick="showApp(1)">🏗️ المطوّر العقاري</button>
-      <button class="apps-tab" onclick="showApp(2)">👷 فريق العمل</button>
-    </div>
-
-    <!-- مسوّق المصانع -->
-    <div class="apps-panel active" style="text-align:right;max-width:720px;margin-inline:auto">
-      <div class="app-feature">
-        <span class="ic">🏭</span>
-        <div>
-          <h4>بوابة منتجات المصانع</h4>
-          <p>اعرض منتجات مصنعك في مدار أمام آلاف المهندسين وأصحاب المحلات — صور، أسعار جملة، وتوفر مباشر، وكل طلب يوصلك على واتساب.</p>
-          <a class="btn btn-gold" href="./reps/" style="padding:.6rem 1.4rem;font-size:.92rem">افتح بوابة المصانع</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- المطوّر العقاري -->
-    <div class="apps-panel" style="text-align:right;max-width:720px;margin-inline:auto">
-      <div class="app-feature">
-        <span class="ic">🏗️</span>
-        <div>
-          <h4>بوابة المطوّر العقاري</h4>
-          <p>اعرض مشاريعك ومبيعاتك ونسب التشطيب — عميلك يشاهد وحدته ويتابع التنفيذ خطوة بخطوة من موبايله.</p>
-          <a class="btn btn-gold" href="./estate/" style="padding:.6rem 1.4rem;font-size:.92rem">افتح بوابة المطوّر</a>
-        </div>
-      </div>
-      <div class="app-feature">
-        <span class="ic">🏘️</span>
-        <div>
-          <h4>سوق العقارات</h4>
-          <p>قائمة عقارات محدّثة يوميًا بالسوق المصري — ابحث بالمنطقة والسعر وتواصل مباشرة. وبداخله: <b>ابحث عن مطوّر بالكود</b> — اكتب كود المطوّر لرؤية كل وحداته فورًا.</p>
-          <div style="display:flex;gap:.6rem;flex-wrap:wrap">
-            <a class="btn btn-gold" href="./estate/#/market" style="padding:.55rem 1.3rem;font-size:.9rem">تصفّح السوق</a>
-            <a class="btn btn-ghost" href="./estate/#/find" style="padding:.55rem 1.3rem;font-size:.9rem;color:var(--gold-2);border-color:rgba(214,161,58,.4)">ابحث بالكود</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- فريق العمل -->
-    <div class="apps-panel" style="text-align:right;max-width:720px;margin-inline:auto">
-      <div class="app-feature">
-        <span class="ic">👷</span>
-        <div>
-          <h4>تحميل ERP لويندوز</h4>
-          <p>نظام إدارة فريق العمل: مهام، حضور وانصراف، مرتبات، ومخزون متصل بالمتجر — مقفل بكلمة سرّ لكل مستخدم وصلاحيات مختلفة.</p>
-          <a class="btn btn-gold" href="#" id="erpBtn" style="padding:.6rem 1.4rem;font-size:.92rem">🔒 تحميل ERP لويندوز</a>
-        </div>
-      </div>
-      <div class="app-feature">
-        <span class="ic">🔐</span>
-        <div>
-          <h4>أمان وخصوصية</h4>
-          <p>بيانات فريقك تُشفَّر وتُحفظ محليًا على جهازك — أنت صاحب القرار في كل صلاحية.</p>
-        </div>
-      </div>
+    <p class="section-sub reveal">كل جمهور له تطبيق يساعده… وكلها تلتقي عند سوق مدار.</p>
+    <div class="apps-grid" id="appsGrid"></div>
+    <!-- فريق العمل: تحميل ERP المحمي (يبقى ثابتًا) -->
+    <div class="app-card team">
+      <div class="ac-head"><span class="ac-ico" style="background:#171A20">👷</span><h4>فريق العمل — النظام الإداري</h4></div>
+      <p>مهام، حضور وانصراف، مرتبات، ومخزون متصل بالمتجر — مقفل بكلمة سرّ لكل مستخدم وصلاحيات مختلفة.</p>
+      <div class="ac-actions"><a class="btn btn-gold ac-btn" href="#" id="erpBtn">🔒 تحميل ERP لويندوز</a></div>
     </div>
   </div>
 </section>
@@ -727,6 +692,40 @@ window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPro
       .then(function(d){ if(d && d.length) render(d); })
       .catch(function(){});
   }catch(e){}
+})();
+</script>
+
+<script>
+/* شبكة «تطبيقات مساعدة لهدفك» — من apps_catalog (الجديد يظهر تلقائيًّا) */
+(function(){
+  var M = {
+    store:{ico:'🛒',c:'#D6A13A',t:'سوق مدار',g:'store-guide.html',
+      d:'النواة: خامات التشطيب والديكور بأسعار واضحة — تصفّح، اطلب بنقرة، وتابع طلبك حتى التسليم.'},
+    supplier:{ico:'🚚',c:'#E4572E',g:'supplier-guide.html',
+      d:'لديك خامات؟ اعرض منتجاتك لقاعدة مشترين متنامية، نظّمها في أقسام، وتابع أداءها وكشف حسابك.'},
+    reps:{ico:'🏭',c:'#2E9E5B',g:'factory-guide.html',
+      d:'لديك مصنع؟ متجرك الرقمي داخل سوق مدار بسعرك أنت — كتالوج، مناديب، وعملاء جدد بباقة شهرية واضحة.'},
+    estate:{ico:'🏢',c:'#7B61FF',g:'estate-guide.html',
+      d:'لديك عقارات؟ معرض دائم لوحداتك برابط وQR، والعملاء المهتمّون يصلونك مباشرة — بلا عمولة بيع.'},
+    portal:{ico:'🛍️',c:'#8A8F98',g:'portal-guide.html',
+      d:'لديك محل؟ اطلب المنتجات الجاهزة أو مواصفاتك الخاصة، تابع رصيدك، واكسب عمولة كمندوب.'}
+  };
+  var FB=[{key:'store',name:'المتجر',url:'./app/?shop=1'},{key:'supplier',name:'صفحة المورّد',url:'./app/'},
+    {key:'reps',name:'منتجات المصانع',url:'./reps/'},{key:'estate',name:'العقارات',url:'./estate/'},
+    {key:'portal',name:'بوابة المحلّات والمناديب',url:'./portal/'}];
+  function e(t){var x=document.createElement('div');x.textContent=t||'';return x.innerHTML;}
+  function card(a){
+    var m=M[a.key]||{ico:'✨',c:'#082B50',g:'about.html',d:'تطبيق جديد من مدار — اكتشفه الآن.'};
+    return '<div class="app-card"><div class="ac-head"><span class="ac-ico" style="background:'+m.c+'">'+m.ico+'</span>'
+      +'<h4>'+e(m.t||a.name)+'</h4></div><p>'+e(m.d)+'</p><div class="ac-actions">'
+      +'<a class="btn btn-gold ac-btn" href="'+e(a.url)+'">افتح التطبيق</a>'
+      +'<a class="ac-about" href="./'+m.g+'">📖 عن التطبيق</a></div></div>';
+  }
+  function render(l){document.getElementById('appsGrid').innerHTML=l.map(card).join('');}
+  render(FB);
+  try{fetch(SB+'/rest/v1/apps_catalog?select=key,name,url,sort_order&is_active=eq.true&order=sort_order',
+    {headers:{apikey:KEY,Authorization:'Bearer '+KEY}}).then(function(r){return r.ok?r.json():null;})
+    .then(function(d){if(d&&d.length)render(d);}).catch(function(){});}catch(x){}
 })();
 </script>
 </body>
