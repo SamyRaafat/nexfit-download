@@ -7,101 +7,154 @@
 <link rel="icon" type="image/png" href="./app/icons/Icon-512.png">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--navy:#082B50;--navy2:#0d3a68;--gold:#D6A13A;--green:#2E9E5B;--ivory:#F6F4EF;--muted:#5b6b7d;--border:#e3e8ef}
+  :root{--navy:#082B50;--navy2:#0d3a68;--gold:#D6A13A;--accent:#2E9E5B;--ivory:#F6F4EF;--muted:#5b6b7d;--border:#e3e8ef}
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:"Cairo",sans-serif;background:var(--ivory);color:#16222f;line-height:1.7}
   .wrap{max-width:820px;margin-inline:auto;padding:16px}
   .hero{background:radial-gradient(900px 500px at 80% -10%,#10457c,var(--navy) 60%,#061f3a);color:#fff;border-radius:22px;padding:30px 22px;text-align:center;margin-top:12px}
-  .hero .badge{display:inline-block;background:var(--green);color:#fff;font-size:.8rem;font-weight:700;padding:5px 14px;border-radius:30px;margin-bottom:12px}
-  .hero h1{font-size:1.7rem}
-  .hero p{color:#cfe0f1;margin-top:8px}
+  .hero .badge{display:inline-block;background:var(--accent);color:#fff;font-size:.8rem;font-weight:700;padding:5px 14px;border-radius:30px;margin-bottom:12px}
+  .hero h1{font-size:1.7rem}.hero p{color:#cfe0f1;margin-top:8px}
   .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px}
   .why .c{background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px;text-align:center}
-  .why .c .e{font-size:28px}
-  .why .c b{display:block;color:var(--navy);margin:6px 0 2px;font-size:.98rem}
-  .why .c span{font-size:.8rem;color:var(--muted)}
-  h2.sec{color:var(--navy);margin:26px 0 6px;font-size:1.3rem;display:flex;align-items:center;gap:8px}
+  .why .c .e{font-size:28px}.why .c b{display:block;color:var(--navy);margin:6px 0 2px;font-size:.98rem}.why .c span{font-size:.8rem;color:var(--muted)}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;justify-content:center}
+  .toc a{background:#fff;border:1px solid var(--border);border-radius:30px;padding:6px 14px;font-size:.85rem;font-weight:700;color:var(--navy);text-decoration:none}
+  h2.sec{color:var(--navy);margin:28px 0 4px;font-size:1.3rem;display:flex;align-items:center;gap:8px;scroll-margin-top:12px}
   h2.sec::before{content:"";width:6px;height:24px;background:var(--gold);border-radius:4px}
-  .step{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px;margin-top:14px;display:flex;gap:16px;align-items:center}
-  .step .art{flex:none;width:150px}
-  .step .art svg{width:100%;height:auto;display:block}
-  .step .tx .n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;margin-bottom:6px}
-  .step .tx h3{color:var(--navy);font-size:1.08rem;margin-bottom:4px}
-  .step .tx p{font-size:.92rem;color:#25343f}
-  @media(max-width:560px){.step{flex-direction:column;text-align:center}.step .art{width:180px}}
-  .cta{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:18px;padding:22px;margin-top:22px;text-align:center}
+  .sub{color:var(--muted);font-size:.9rem;margin-bottom:4px}
+  .step{background:#fff;border:1px solid var(--border);border-radius:18px;padding:16px;margin-top:12px;display:flex;gap:16px;align-items:flex-start}
+  .step .tile{flex:none;width:60px;height:60px;border-radius:16px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 6px 16px rgba(46,158,91,.28)}
+  .step.gold .tile{background:var(--gold);box-shadow:0 6px 16px rgba(214,161,58,.3)}
+  .step.navy .tile{background:var(--navy);box-shadow:0 6px 16px rgba(8,43,80,.3)}
+  .step .tx h3{color:var(--navy);font-size:1.04rem;margin-bottom:3px}.step .tx p{font-size:.92rem;color:#25343f}
+  .step .tx ul{margin:6px 18px 0 0;font-size:.9rem;color:#25343f}
+  .where{display:inline-block;margin-top:6px;background:var(--ivory);border:1px solid var(--border);border-radius:8px;padding:2px 9px;font-size:.78rem;color:var(--muted)}
+  .phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:12px}
+  .ph{border-radius:14px;padding:12px;border:1px solid}
+  .ph b{display:block;font-size:.92rem}.ph span{font-size:.8rem}
+  .cta{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:18px;padding:22px;margin-top:24px;text-align:center}
   .cta a{display:inline-block;margin-top:10px;background:linear-gradient(135deg,var(--gold),#c08f2a);color:var(--navy);font-weight:800;text-decoration:none;padding:12px 24px;border-radius:12px}
-  .foot{text-align:center;color:var(--muted);font-size:.82rem;padding:22px 0 10px}
+  .foot{text-align:center;color:var(--muted);font-size:.82rem;padding:22px 0 10px}.foot a{color:var(--navy);font-weight:700;text-decoration:none}
+  @media(max-width:560px){.step{flex-direction:column}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="hero">
-    <span class="badge">دليل المسؤول</span>
+    <span class="badge">دليل قائد المصنع</span>
     <h1>تطبيق منتجات المصانع</h1>
-    <p>أنشئ كتالوجك الرقمي، أدِر منتجاتك ومندوبيك، ووصّل مصنعك بعملاء جدد — في دقائق.</p>
+    <p>متجرك الرقمي داخل سوق مدار: أنت تحدّد سعرك، ومدار يوصل منتجاتك لعملاء جدد — مع فريق مناديب، وكشف حساب شهري واضح.</p>
   </header>
 
-  <h2 class="sec">كيف يعمل معك مدار؟</h2>
   <div class="why">
-    <div class="c"><div class="e">🛒</div><b>متجرك داخل مدار</b><span>كتالوجك وأسعارك أنت تحدّدها</span></div>
-    <div class="c"><div class="e">📣</div><b>عملاء جدد</b><span>وصول لقاعدة مشترين متنامية</span></div>
-    <div class="c"><div class="e">🧑‍💼</div><b>شراكة تناسبك</b><span>بالهامش بلا التزام، أو بالإيجار</span></div>
-    <div class="c"><div class="e">📊</div><b>تحليلات وطلبات</b><span>تعرف ما يطلبه السوق</span></div>
+    <div class="c"><div class="e">🛒</div><b>متجرك داخل مدار</b><span>كتالوجك بأسعارك أنت</span></div>
+    <div class="c"><div class="e">📣</div><b>عملاء جدد</b><span>منتجاتك أمام قاعدة مشترين متنامية</span></div>
+    <div class="c"><div class="e">🧑‍💼</div><b>فريق مناديب</b><span>يبيعون منتجاتك لعملائهم</span></div>
+    <div class="c"><div class="e">🧾</div><b>باقة شهرية واضحة</b><span>إيجار معلن + عمولة معلنة</span></div>
   </div>
 
-  <h2 class="sec">ابدأ خطوة بخطوة</h2>
+  <nav class="toc">
+    <a href="#products">منتجاتك</a><a href="#sales">البيع والعملاء</a>
+    <a href="#reps">المناديب</a><a href="#plan">باقتك</a><a href="#help">الدعم</a>
+  </nav>
 
-  <div class="step">
-    <div class="art">
-      <svg viewBox="0 0 180 150"><rect x="20" y="10" width="140" height="130" rx="14" fill="#fff" stroke="#cfd8e3" stroke-width="2"/><rect x="20" y="10" width="140" height="30" rx="14" fill="#082B50"/><rect x="34" y="60" width="112" height="20" rx="6" fill="#eef2f7"/><rect x="34" y="90" width="112" height="20" rx="6" fill="#eef2f7"/><circle cx="135" cy="125" r="18" fill="#2E9E5B"/><path d="M135 117v16M127 125h16" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+  <!-- ===== 1) المنتجات ===== -->
+  <h2 class="sec" id="products">١ · منتجاتك</h2>
+  <p class="sub">من «إدارة المسوّدة (المنتجات)» في لوحتك.</p>
+
+  <div class="step"><div class="tile">🗂️</div><div class="tx">
+    <h3>أنشئ أقسامك</h3>
+    <p>زرّ <b>«قسم جديد»</b> أسفل الشاشة (مثل: خامات، تجهيزات، دهانات). الأقسام تنظّم كتالوجك وتسهّل على العميل البحث، وتصفّي منتجاتك بالضغط على اسم القسم في الشريط العلوي.</p>
+    <span class="where">الكتالوج ← زرّ «قسم جديد»</span></div></div>
+
+  <div class="step"><div class="tile">➕</div><div class="tx">
+    <h3>أضِف منتجًا كاملًا</h3>
+    <p>زرّ <b>«منتج جديد»</b> (تحت «قسم جديد» مباشرة):</p>
+    <ul>
+      <li>الاسم، والقسم، والصور.</li>
+      <li><b>الفروز</b>: أضِف لكل فرز سعره <b>بالقطعة</b> و<b>بالجملة</b>.</li>
+      <li><b>«متاح الآن»</b> لتحديد توفّر المنتج فورًا.</li>
+      <li><b>فيديو للمنتج</b> يشاهده العميل قبل أن يطلب.</li>
+    </ul>
+    <span class="where">الكتالوج ← زرّ «منتج جديد»</span></div></div>
+
+  <div class="step"><div class="tile">📊</div><div class="tx">
+    <h3>Excel — للكتالوج الكبير</h3>
+    <p>من الشريط العلوي: <b>«تنزيل القالب»</b> ← املأه ← <b>«استيراد Excel»</b> فتُضاف منتجاتك دفعة واحدة. و<b>«تصدير Excel»</b> لنسخة كاملة من كتالوجك.</p>
+    <span class="where">الكتالوج ← أيقونة Excel (للمدير)</span></div></div>
+
+  <div class="step"><div class="tile">🖼️</div><div class="tx">
+    <h3>رفع الصور بالجملة (بالكود)</h3>
+    <p>سمِّ كل صورة بكود منتجها وارفعها كلها مرة واحدة — يربط التطبيق كل صورة بمنتجها تلقائيًّا.</p>
+    <span class="where">أيقونة Excel ← «رفع صور بالجملة»</span></div></div>
+
+  <!-- ===== 2) البيع والعملاء ===== -->
+  <h2 class="sec" id="sales">٢ · البيع والعملاء</h2>
+
+  <div class="step gold"><div class="tile">🔗</div><div class="tx">
+    <h3>منتجاتك في سوق مدار</h3>
+    <p>منتجاتك تظهر للمستفيدين <b>باسم مصنعك وهويتك وبسعرك</b>. يرى العميل الصور والفيديو والفروز، ويطلب منك عبر المنصّة.</p></div></div>
+
+  <div class="step gold"><div class="tile">❤️</div><div class="tx">
+    <h3>العملاء المهتمّون</h3>
+    <p>كل عميل يضغط <b>«يهمّني هذا المنتج»</b> يظهر لك هنا باسمه ورقمه — تابعه فورًا عبر واتساب قبل أن يذهب لغيرك.</p>
+    <span class="where">اللوحة ← «العملاء المهتمّون»</span></div></div>
+
+  <div class="step gold"><div class="tile">🏷️</div><div class="tx">
+    <h3>خصم منصّة التوزيع</h3>
+    <p>حدّد نسبة الخصم التي تمنحها لمنصّة مدار على منتجاتك — هي ما يجعل منتجك تنافسيًّا في السوق.</p>
+    <span class="where">اللوحة ← «منصّة التوزيع» ← تحديد</span></div></div>
+
+  <!-- ===== 3) المناديب ===== -->
+  <h2 class="sec" id="reps">٣ · فريق المناديب</h2>
+
+  <div class="step navy"><div class="tile">🧑‍💼</div><div class="tx">
+    <h3>أضِف مندوبًا</h3>
+    <p>زرّ <b>«إضافة مندوب»</b> ← اكتب اسمه ← يظهر له <b>كود انضمام</b> تنسخه وترسله له. حين ينضمّ يتحوّل إلى «مرتبط».</p>
+    <span class="where">اللوحة ← زرّ «إضافة مندوب»</span></div></div>
+
+  <div class="step navy"><div class="tile">📤</div><div class="tx">
+    <h3>المندوب ينشر لعملائه</h3>
+    <p>كل مندوب يختار ما ينشره: <b>«نشر الكل»</b> أو <b>«نشر متاح اليوم»</b> أو <b>عناصر محدّدة</b> — ويدير <b>«عملائي»</b> برابط دائم لكل عميل يرسله عبر واتساب.</p></div></div>
+
+  <!-- ===== 4) الباقة ===== -->
+  <h2 class="sec" id="plan">٤ · باقتك واشتراكك</h2>
+
+  <div class="step"><div class="tile">⭐</div><div class="tx">
+    <h3>«باقتي»</h3>
+    <p>من <b>⋮ المزيد ← باقتي</b>: الإيجار الشهري، ونسبة عمولة مدار، وتاريخ التجديد، و<b>كشف الشهر</b>:</p>
+    <ul>
+      <li>مبيعاتك (بسعرك) − عمولة مدار = <b>صافيك</b></li>
+      <li>صافيك − الإيجار = <b>المستحقّ لك</b> (أو عليك)</li>
+    </ul>
+    <p>تتنقّل بين الشهور لترى كل شهر على حدة.</p>
+    <span class="where">⋮ المزيد ← باقتي</span></div></div>
+
+  <div class="step"><div class="tile">⏳</div><div class="tx">
+    <h3>شريط الاشتراك في لوحتك</h3>
+    <div class="phases">
+      <div class="ph" style="border-color:#2E9E5B;background:#eef8f2"><b style="color:#2E9E5B">✅ نشط</b><span>المتبقّي حتى التجديد</span></div>
+      <div class="ph" style="border-color:#E08A00;background:#fdf4e6"><b style="color:#E08A00">⏰ آخر 7 أيام</b><span>تنبيه + زرّ «جدّد»</span></div>
+      <div class="ph" style="border-color:#D14343;background:#fdeeee"><b style="color:#D14343">⚠️ مهلة 7 أيام</b><span>كل شيء يعمل مع تنبيه</span></div>
+      <div class="ph" style="border-color:#D14343;background:#fdeeee"><b style="color:#D14343">🔒 قراءة فقط</b><span>بياناتك محفوظة، الإضافة متوقّفة</span></div>
     </div>
-    <div class="tx"><span class="n">١</span><h3>أنشئ أقسامك</h3><p>اضغط «إضافة قسم» (مثل: خامات، تجهيزات، دهانات) لتنظيم كتالوجك قبل إضافة المنتجات.</p></div>
-  </div>
+    <p style="margin-top:8px">في «القراءة فقط» ترى كل بياناتك وطلباتك، لكن الإضافة والتعديل تتوقّف حتى التجديد — بزرّ «تواصل للتجديد» مباشرة.</p></div></div>
 
-  <div class="step">
-    <div class="art">
-      <svg viewBox="0 0 180 150"><rect x="20" y="10" width="140" height="130" rx="14" fill="#fff" stroke="#cfd8e3" stroke-width="2"/><rect x="34" y="26" width="60" height="44" rx="8" fill="#eef2f7"/><path d="M50 56l10-10 8 8 6-6 8 8" stroke="#8a98a8" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="52" cy="40" r="4" fill="#d6a13a"/><rect x="104" y="30" width="44" height="9" rx="4" fill="#082B50"/><rect x="104" y="46" width="44" height="7" rx="3" fill="#cfd8e3"/><rect x="34" y="84" width="114" height="10" rx="5" fill="#eef2f7"/><rect x="34" y="104" width="70" height="10" rx="5" fill="#eef2f7"/><rect x="104" y="118" width="44" height="16" rx="8" fill="#2E9E5B"/></svg>
-    </div>
-    <div class="tx"><span class="n">٢</span><h3>أضِف منتجاتك</h3><p>«منتج جديد» ← اسم المنتج وصورته وسعره والقسم. كل منتج يظهر لعملائك مباشرةً في المتجر.</p></div>
-  </div>
+  <!-- ===== 5) الدعم ===== -->
+  <h2 class="sec" id="help">٥ · الدعم والقائمة</h2>
 
-  <div class="step">
-    <div class="art">
-      <svg viewBox="0 0 180 150"><rect x="30" y="20" width="120" height="110" rx="12" fill="#fff" stroke="#cfd8e3" stroke-width="2"/><rect x="42" y="34" width="96" height="16" rx="4" fill="#1D6F42"/><rect x="42" y="56" width="96" height="12" rx="3" fill="#e4efe9"/><rect x="42" y="74" width="96" height="12" rx="3" fill="#e4efe9"/><rect x="42" y="92" width="96" height="12" rx="3" fill="#e4efe9"/><path d="M90 108v22M80 122l10 10 10-10" stroke="#2E9E5B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <div class="tx"><span class="n">٣</span><h3>استورد بالجملة (اختياري)</h3><p>عندك كتالوج كبير؟ استورد منتجاتك دفعة واحدة من ملف Excel، وارفع الصور بالكود — توفيرًا للوقت.</p></div>
-  </div>
+  <div class="step navy"><div class="tile">💬</div><div class="tx">
+    <h3>محادثة الدعم وأبلغ عن مشكلة</h3>
+    <p><b>«محادثة الدعم (ERP)»</b> للتواصل المباشر مع الإدارة وإرفاق ملف نظام مصنعك. وأيقونة <b>الدعم الفني</b> 🎧 لإرسال عطل أو استفسار. و<b>⋮ ← «أبلغ عن مشكلة»</b> عبر واتساب.</p></div></div>
 
-  <div class="step">
-    <div class="art">
-      <svg viewBox="0 0 180 150"><circle cx="60" cy="75" r="16" fill="#082B50"/><circle cx="125" cy="45" r="13" fill="#2E9E5B"/><circle cx="125" cy="108" r="13" fill="#D6A13A"/><path d="M73 68l40-18M73 82l40 20" stroke="#8a98a8" stroke-width="3"/><path d="M53 75h14M60 68v14" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
-    </div>
-    <div class="tx"><span class="n">٤</span><h3>شارك كتالوجك</h3><p>من «المزيد ⋮ ← شارك كتالوجي الكامل» تحصل على رابط واحد ترسله لكل عملائك عبر واتساب أو تضعه في صفحاتك.</p></div>
-  </div>
+  <div class="step navy"><div class="tile">⋮</div><div class="tx">
+    <h3>قائمة «المزيد»</h3>
+    <p><b>باقتي</b> · عن التطبيق · وصول سريع (ثبّت التطبيق على شاشتك) · من نحن · تطبيقات مدار · أبلغ عن مشكلة · تسجيل الخروج.</p></div></div>
 
-  <div class="step">
-    <div class="art">
-      <svg viewBox="0 0 180 150"><rect x="20" y="20" width="140" height="110" rx="12" fill="#fff" stroke="#cfd8e3" stroke-width="2"/><circle cx="48" cy="52" r="12" fill="#E4572E"/><path d="M42 52a6 6 0 0112 0" fill="#fff"/><circle cx="48" cy="48" r="4" fill="#fff"/><rect x="68" y="44" width="80" height="9" rx="4" fill="#082B50"/><rect x="68" y="58" width="56" height="7" rx="3" fill="#cfd8e3"/><circle cx="48" cy="96" r="12" fill="#7B61FF"/><path d="M42 96a6 6 0 0112 0" fill="#fff"/><circle cx="48" cy="92" r="4" fill="#fff"/><rect x="68" y="88" width="80" height="9" rx="4" fill="#082B50"/><rect x="68" y="102" width="56" height="7" rx="3" fill="#cfd8e3"/></svg>
-    </div>
-    <div class="tx"><span class="n">٥</span><h3>تابع العملاء والطلبات</h3><p>مَن سجّل اهتمامًا بمنتجاتك يظهر لك لتتواصل معه، والطلبات تصلك لتديرها وتردّ بسرعة.</p></div>
-  </div>
-
-  <div class="step">
-    <div class="art">
-      <svg viewBox="0 0 180 150"><circle cx="90" cy="60" r="24" fill="#2E9E5B"/><path d="M78 58a12 12 0 0124 0" fill="#fff"/><circle cx="90" cy="52" r="8" fill="#fff"/><rect x="40" y="96" width="100" height="40" rx="12" fill="#fff" stroke="#cfd8e3" stroke-width="2"/><rect x="54" y="108" width="72" height="8" rx="4" fill="#082B50"/><rect x="54" y="122" width="48" height="6" rx="3" fill="#cfd8e3"/><circle cx="140" cy="44" r="12" fill="#D6A13A"/><path d="M134 44h12M140 38v12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
-    </div>
-    <div class="tx"><span class="n">٦</span><h3>أضِف مندوبيك</h3><p>«إضافة مندوب» يمنحه كودًا ونسبة عمولة، فيوزّع منتجاتك لعملائه — قوة بيع مجانية تنمو معك.</p></div>
-  </div>
-
-  <div class="step"><div class="art"><svg viewBox="0 0 180 150"><rect x="20" y="20" width="140" height="110" rx="12" fill="#fff" stroke="#cfd8e3" stroke-width="2"/><rect x="34" y="34" width="112" height="16" rx="4" fill="#1D6F42"/><rect x="34" y="60" width="112" height="12" rx="3" fill="#e4efe9"/><rect x="34" y="78" width="112" height="12" rx="3" fill="#e4efe9"/><rect x="34" y="100" width="112" height="14" rx="5" fill="#D6A13A"/></svg></div><div class="tx"><span class="n">٧</span><h3>اختر نوع شراكتك — وتابعه في «باقتي»</h3><p><b>🏷️ بالهامش:</b> بلا إيجار ولا عمولة، يضيف مدار هامشه على سعر العميل ويصلك سعرك كاملًا. <b>📅 بالإيجار:</b> يرى عميلك سعرك أنت (سعر أقل = مبيعات أكثر) مقابل اشتراك شهري وعمولة صغيرة معلنة. من «المزيد ⋮ ← باقتي» تتابع مبيعاتك وكشفك الشهري.</p></div></div>
-  <div class="cta">
-    <h3>جاهز لتبدأ؟</h3>
+  <div class="cta"><h3>جاهز لتبدأ؟</h3>
     <p style="color:#cfe0f1;margin-top:6px">أنشئ أول قسم ومنتج الآن — ويسعدنا إعداد كتالوجك الأول معك.</p>
-    <a href="./reps/">افتح تطبيق المصانع</a>
-  </div>
-
-  <p class="foot">مدار — <a href="./" style="color:var(--navy);font-weight:700;text-decoration:none">madar.app</a></p>
+    <a href="./reps/">افتح تطبيق المصانع</a></div>
+  <p class="foot">مدار — <a href="./">madar.app</a></p>
 </div>
 </body>
 </html>
