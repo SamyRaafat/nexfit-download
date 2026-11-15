@@ -681,11 +681,14 @@ window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPro
     estate:{ico:'🏢',c:'#7B61FF',g:'estate-guide.html',
       d:'لديك عقارات؟ معرض دائم لوحداتك برابط وQR، والعملاء المهتمّون يصلونك مباشرة — بلا عمولة بيع.'},
     portal:{ico:'🛍️',c:'#8A8F98',g:'portal-guide.html',
-      d:'لديك محل؟ اطلب المنتجات الجاهزة أو مواصفاتك الخاصة، تابع رصيدك، واكسب عمولة كمندوب.'}
+      d:'لديك محل؟ اطلب المنتجات الجاهزة أو مواصفاتك الخاصة، تابع رصيدك، واكسب عمولة كمندوب.'},
+    business:{ico:'🛠️',c:'#0E7C7B',g:'business-guide.html',
+      d:'شركة تشطيب أو فنّي؟ نظّم شغلك: معاينة بالصور، عرض سعر بموافقة واتساب، تحصيل ومديونيات، وسابقة أعمال يراها عملاء مدار.'}
   };
   var FB=[{key:'store',name:'المتجر',url:'./app/?shop=1'},{key:'supplier',name:'صفحة المورّد',url:'./app/'},
     {key:'reps',name:'منتجات المصانع',url:'./reps/'},{key:'estate',name:'العقارات',url:'./estate/'},
-    {key:'portal',name:'بوابة المحلّات والمناديب',url:'./portal/'}];
+    {key:'portal',name:'بوابة المحلّات والمناديب',url:'./portal/'},
+    {key:'business',name:'مدير الأعمال',url:'./business/'}];
   function e(t){var x=document.createElement('div');x.textContent=t||'';return x.innerHTML;}
   function card(a){
     var m=M[a.key]||{ico:'✨',c:'#082B50',g:'about.html',d:'تطبيق جديد من مدار — اكتشفه الآن.'};
