@@ -435,15 +435,21 @@ footer small{display:block;margin-top:.5rem;font-size:.8rem}
 
 <!-- ==================== التحميل + كود الدعوة ==================== -->
 <main>
-<!-- ==================== ادخل مباشرة ==================== -->
-<section class="enter" id="enter">
-  <div class="wrap">
-    <h2 class="section-title" style="text-align:center">ادخل مباشرةً</h2>
-    <div id="coreRow"></div>
-    <h3>تطبيقاتنا</h3>
-    <div id="appsRows"></div>
+<section class="section apps">
+  <div class="container" style="text-align:center">
+    <span class="eyebrow reveal" style="background:rgba(214,161,58,.12);color:var(--gold-2)">مدارات حول سوق مدار</span>
+    <h2 class="section-title reveal">تطبيقات مساعدة لهدفك</h2>
+    <p class="section-sub reveal">كل جمهور له تطبيق يساعده… وكلها تلتقي عند سوق مدار.</p>
+    <div class="apps-carousel" id="appsCarousel">
+      <button class="ac-nav prev" type="button" aria-label="السابق">›</button>
+      <div class="apps-grid" id="appsGrid"></div>
+      <button class="ac-nav next" type="button" aria-label="التالي">‹</button>
+    </div>
+    <div class="ac-dots" id="appsDots"></div>
+
   </div>
 </section>
+
 <section class="section" id="download">
   <div class="container" style="text-align:center">
     <span class="eyebrow reveal">التثبيت في دقيقة</span>
@@ -494,20 +500,7 @@ footer small{display:block;margin-top:.5rem;font-size:.8rem}
 </section>
 
 <!-- ==================== التطبيقات المساعدة (مدارات هدفك) ==================== -->
-<section class="section apps">
-  <div class="container" style="text-align:center">
-    <span class="eyebrow reveal" style="background:rgba(214,161,58,.12);color:var(--gold-2)">مدارات حول سوق مدار</span>
-    <h2 class="section-title reveal">تطبيقات مساعدة لهدفك</h2>
-    <p class="section-sub reveal">كل جمهور له تطبيق يساعده… وكلها تلتقي عند سوق مدار.</p>
-    <div class="apps-carousel" id="appsCarousel">
-      <button class="ac-nav prev" type="button" aria-label="السابق">›</button>
-      <div class="apps-grid" id="appsGrid"></div>
-      <button class="ac-nav next" type="button" aria-label="التالي">‹</button>
-    </div>
-    <div class="ac-dots" id="appsDots"></div>
 
-  </div>
-</section>
 </main>
 
 <!-- ==================== نافذة بوّابة ERP ==================== -->
@@ -673,49 +666,7 @@ window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPro
 })();
 </script>
 
-<script>
-/* ادخل مباشرة — من apps_catalog (أي تطبيق جديد يظهر تلقائيًّا) */
-(function(){
-  var META = {
-    store:   {ico:'🛒', color:'#D6A13A', sub:'النواة — تسوّق خامات التشطيب والديكور', guide:'store-guide.html', title:'سوق مدار'},
-    supplier:{ico:'🚚', color:'#E4572E', sub:'لديك خامات؟ اعرض منتجاتك', guide:'supplier-guide.html'},
-    reps:    {ico:'🏭', color:'#2E9E5B', sub:'لديك مصنع؟ متجرك داخل سوق مدار', guide:'factory-guide.html'},
-    estate:  {ico:'🏢', color:'#7B61FF', sub:'لديك عقارات؟ معرض وحداتك', guide:'estate-guide.html'},
-    portal:  {ico:'🛍️', color:'#8A8F98', sub:'لديك محل؟ اطلب واكسب كمندوب', guide:'portal-guide.html'}
-  };
-  var FALLBACK = [
-    {key:'store',name:'المتجر',url:'./app/?shop=1'},
-    {key:'supplier',name:'صفحة المورّد',url:'./app/'},
-    {key:'reps',name:'منتجات المصانع',url:'./reps/'},
-    {key:'estate',name:'العقارات',url:'./estate/'},
-    {key:'portal',name:'بوابة المحلّات والمناديب',url:'./portal/'}
-  ];
-  function esc(t){var d=document.createElement('div');d.textContent=t||'';return d.innerHTML;}
-  function row(a, core){
-    var m = META[a.key] || {ico:'✨', color:'#082B50', sub:'تطبيق جديد من مدار', guide:'about.html'};
-    var name = core && m.title ? m.title : a.name;
-    return '<div class="app-row'+(core?' core':'')+'">'
-      + '<a class="app-ico" style="background:'+m.color+'" href="'+esc(a.url)+'" aria-hidden="true">'+m.ico+'</a>'
-      + '<a class="app-go" href="'+esc(a.url)+'"><b>'+esc(name)+'</b><span>'+esc(m.sub)+'</span></a>'
-      + '<a class="app-about" href="./'+m.guide+'" title="عن التطبيق">📖 عن التطبيق</a>'
-      + '</div>';
-  }
-  function render(list){
-    var core = list.filter(function(a){return a.key==='store';})[0];
-    var rest = list.filter(function(a){return a.key!=='store';});
-    document.getElementById('coreRow').innerHTML = core ? row(core,true) : '';
-    document.getElementById('appsRows').innerHTML = rest.map(function(a){return row(a,false);}).join('');
-  }
-  render(FALLBACK);
-  try{
-    fetch(SB+'/rest/v1/apps_catalog?select=key,name,url,sort_order&is_active=eq.true&order=sort_order',
-      {headers:{apikey:KEY,Authorization:'Bearer '+KEY}})
-      .then(function(r){return r.ok?r.json():null;})
-      .then(function(d){ if(d && d.length) render(d); })
-      .catch(function(){});
-  }catch(e){}
-})();
-</script>
+
 
 <script>
 /* شبكة «تطبيقات مساعدة لهدفك» — من apps_catalog (الجديد يظهر تلقائيًّا) */
