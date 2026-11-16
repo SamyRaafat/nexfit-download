@@ -34,6 +34,45 @@
   <script>if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.update();});});var _r=false;navigator.serviceWorker.addEventListener("controllerchange",function(){if(_r)return;_r=true;location.reload();});}</script>
 </head>
 <body>
+  <!-- madar-splash:start -->
+  <style>
+    #madar-splash{position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;gap:14px;background:#0C2340;color:#fff;
+      font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;direction:rtl;
+      transition:opacity .35s ease}
+    #madar-splash.hide{opacity:0;pointer-events:none}
+    #madar-splash .ic{width:96px;height:96px;border-radius:28px;display:flex;align-items:center;
+      justify-content:center;background:#F5A62322;border:1.5px solid #F5A62366;
+      animation:mspulse 1.6s ease-in-out infinite}
+    #madar-splash h1{margin:6px 0 0;font-size:26px;font-weight:800}
+    #madar-splash p{margin:0;font-size:14px;opacity:.75}
+    #madar-splash .bar{width:120px;height:3px;border-radius:3px;background:#ffffff22;overflow:hidden;margin-top:10px}
+    #madar-splash .bar i{display:block;width:40%;height:100%;background:#F5A623;animation:msbar 1.1s ease-in-out infinite}
+    #madar-splash .by{position:absolute;bottom:28px;font-size:12px;opacity:.6;letter-spacing:.3px}
+    #madar-splash .by b{color:#F5A623;opacity:1}
+    @keyframes mspulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+    @keyframes msbar{0%{transform:translateX(160%)}100%{transform:translateX(-260%)}}
+  </style>
+  <div id="madar-splash" role="status" aria-label="جارٍ تحميل سوق مدار">
+    <div class="ic"><svg width="52" height="52" viewBox="0 0 24 24" fill="#F5A623" aria-hidden="true"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg></div>
+    <h1>سوق مدار</h1>
+    <p>تسوّق بأفضل الأسعار</p>
+    <div class="bar"><i></i></div>
+    <div class="by">من <b>مَدّار</b></div>
+  </div>
+  <script>
+    (function () {
+      function hide() {
+        var s = document.getElementById('madar-splash');
+        if (!s) return;
+        s.classList.add('hide');
+        setTimeout(function () { s.remove(); }, 400);
+      }
+      window.addEventListener('flutter-first-frame', hide);
+      setTimeout(hide, 20000); // أمان: لا تبقى للأبد لو تعطّل التحميل
+    })();
+  </script>
+  <!-- madar-splash:end -->
   <script>
     // CanvasKit من CDN مشترك (نفس إصدار المحرّك لكل التطبيقات) ⇒ يُحمَّل مرّة
     // ويُخزَّن للجميع، فيسرّع الانتقال بين التطبيقات.

@@ -1,36 +1,36 @@
 {
-  "name": "مدير الأعمال — مَدّار",
-  "short_name": "مدير الأعمال",
-  "start_url": "/nexfit-download/business/",
-  "scope": "/nexfit-download/business/",
-  "display": "standalone",
-  "background_color": "#082B50",
-  "theme_color": "#082B50",
-  "description": "مدير الأعمال من مَدّار — نظّم عملاءك ومواقعك وعروض أسعارك ومديونياتك، حتى بلا إنترنت",
-  "orientation": "portrait-primary",
-  "prefer_related_applications": false,
-  "icons": [
-    {
-      "src": "icons/Icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icons/Icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "icons/Icon-maskable-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "icons/Icon-maskable-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-  ]
+    "name": "مدير الأعمال — مَدّار",
+    "short_name": "مدير الأعمال",
+    "start_url": "/nexfit-download/business/",
+    "scope": "/nexfit-download/business/",
+    "display": "standalone",
+    "background_color": "#082B50",
+    "theme_color": "#082B50",
+    "description": "مدير الأعمال من مَدّار — نظّم عملاءك ومواقعك وعروض أسعارك ومديونياتك، حتى بلا إنترنت",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
 }
