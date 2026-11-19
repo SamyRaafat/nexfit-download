@@ -39478,7 +39478,7 @@ case 3:p=b
 d=A.a([],t.Wl)
 for(o=J.aD(p),n=t.f,m=t.N,l=t.z;o.p();){k=A.f6(n.a(o.gI(o)),m,l)
 j=A.bl(k.h(0,"key"))
-i=A.bl(k.h(0,"name"))
+i=J.e(k.h(0,"key"),"store")?"\u0633\u0648\u0642 \u0645\u062f\u0627\u0631":A.bl(k.h(0,"name"))
 h=A.bz3(A.bl(k.h(0,"key")),A.bl(k.h(0,"url")))
 g=A.ck(k.h(0,"icon"))
 f=A.ck(k.h(0,"capability"))
