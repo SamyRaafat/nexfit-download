@@ -73,6 +73,20 @@
     })();
   </script>
   <!-- madar-splash:end -->
+  <script>
+    // رابط «صفحة المورّد» (?view=supplier) يعيش داخل تطبيق المتجر ⇒ هوية المورّد في شاشة البداية
+    (function () {
+      if (location.search.indexOf('view=supplier') < 0) return;
+      var s = document.getElementById('madar-splash'); if (!s) return;
+      s.style.background = '#3A1A10';
+      s.querySelector('h1').textContent = 'صفحة المورّد';
+      s.querySelector('p').textContent = 'اعرض خاماتك لمشترين أكثر';
+      s.setAttribute('aria-label', 'جارٍ تحميل صفحة المورّد');
+      var ic = s.querySelector('.ic'); ic.style.background = '#E4572E22'; ic.style.borderColor = '#E4572E66';
+      ic.innerHTML = '<svg width="52" height="52" viewBox="0 0 24 24" fill="#E4572E" aria-hidden="true"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9 1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>';
+      var bar = s.querySelector('.bar i'); if (bar) bar.style.background = '#E4572E';
+    })();
+  </script>
         <script>
     // CanvasKit من CDN مشترك (نفس إصدار المحرّك لكل التطبيقات) ⇒ يُحمَّل مرّة
     // ويُخزَّن للجميع، فيسرّع الانتقال بين التطبيقات.
