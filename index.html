@@ -683,13 +683,16 @@ window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPro
       d:'لديك عقارات؟ معرض دائم لوحداتك برابط وQR، والعملاء المهتمّون يصلونك مباشرة — بلا عمولة بيع.'},
     portal:{ico:'🤝',c:'#B7791F',t:'شركاء مدار',g:'portal-guide.html',
       d:'انشر مدار برابطك الخاص، واكسب نسبة من صافي ربح مدار من كل عميل يأتي عن طريقك لمدة 3 سنوات.'},
+    assistant:{ico:'👨‍👩‍👧',c:'#0F6E56',t:'مساعد مدار',g:'about.html',
+      d:'أسرتك وعائلتك وعمارتك في مكان واحد: مشتريات مشتركة لا تتكرّر، تصويت وصندوق شفّاف للعمارة، فواتيرك وتحاليلك، وتذكير بالمواعيد والأدوية.'},
     business:{ico:'🛠️',c:'#0E7C7B',g:'business-guide.html',
       d:'شركة تشطيب أو فنّي؟ نظّم شغلك: معاينة بالصور، عرض سعر بموافقة واتساب، تحصيل ومديونيات، وسابقة أعمال يراها عملاء مدار.'}
   };
   var FB=[{key:'store',name:'المتجر',url:'./app/?shop=1'},{key:'supplier',name:'صفحة المورّد',url:'./app/'},
     {key:'reps',name:'منتجات المصانع',url:'./reps/'},{key:'estate',name:'العقارات',url:'./estate/'},
     {key:'portal',name:'شركاء مدار',url:'./portal/'},
-    {key:'business',name:'مدير الأعمال',url:'./business/'}];
+    {key:'business',name:'مدير الأعمال',url:'./business/'},
+    {key:'assistant',name:'مساعد مدار',url:'./assistant/'}];
   function e(t){var x=document.createElement('div');x.textContent=t||'';return x.innerHTML;}
   function card(a){
     var m=M[a.key]||{ico:'✨',c:'#082B50',g:'about.html',d:'تطبيق جديد من مدار — اكتشفه الآن.'};
