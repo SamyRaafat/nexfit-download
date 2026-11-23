@@ -76,6 +76,16 @@
     <script>
     // رابط «صفحة المورّد» (?view=supplier) يعيش داخل تطبيق المتجر ⇒ هوية المورّد في شاشة البداية
     (function () {
+      var leader = false;
+      try { leader = localStorage.getItem('flutter.madar_is_leader') === 'true'; } catch (e) {}
+      var sp = document.getElementById('madar-splash');
+      // حساب القائد (آخر دخول على هذا الجهاز) ⇒ «لوحة القائد» ما لم يُفتح المتجر للتسوّق
+      if (sp && leader && location.search.indexOf('view=supplier') < 0 && location.search.indexOf('shop=1') < 0) {
+        sp.querySelector('h1').textContent = 'لوحة القائد';
+        sp.querySelector('p').textContent = 'إدارة منظومة مدار';
+        sp.setAttribute('aria-label', 'جارٍ تحميل لوحة القائد');
+        return;
+      }
       if (location.search.indexOf('view=supplier') < 0) return;
       var s = document.getElementById('madar-splash'); if (!s) return;
       s.style.background = '#3A1A10';
