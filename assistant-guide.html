@@ -14,56 +14,89 @@
   .hero{background:radial-gradient(900px 500px at 80% -10%,#10457c,var(--navy) 60%,#061f3a);color:#fff;border-radius:22px;padding:30px 22px;text-align:center;margin-top:12px}
   .hero .badge{display:inline-block;background:var(--accent);color:#fff;font-size:.8rem;font-weight:700;padding:5px 14px;border-radius:30px;margin-bottom:12px}
   .hero h1{font-size:1.7rem}.hero p{color:#cfe0f1;margin-top:8px}
+  .hero .new{display:inline-block;background:var(--gold);color:var(--navy);font-weight:800;font-size:.8rem;padding:4px 12px;border-radius:20px;margin-top:12px}
   .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px}
   .why .c{background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px;text-align:center}
   .why .c .e{font-size:28px}.why .c b{display:block;color:var(--navy);margin:6px 0 2px;font-size:.98rem}.why .c span{font-size:.8rem;color:var(--muted)}
   h2.sec{color:var(--navy);margin:26px 0 6px;font-size:1.3rem;display:flex;align-items:center;gap:8px}
   h2.sec::before{content:"";width:6px;height:24px;background:var(--gold);border-radius:4px}
+  h2.sec .tag{font-size:.72rem;background:var(--gold);color:var(--navy);padding:2px 10px;border-radius:12px}
+  .lead{color:var(--muted);font-size:.95rem}
   .step{background:#fff;border:1px solid var(--border);border-radius:18px;padding:16px;margin-top:14px;display:flex;gap:16px;align-items:center}
   .step .tile{flex:none;width:72px;height:72px;border-radius:18px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:34px;box-shadow:0 6px 16px rgba(15,110,86,.3)}
+  .step.gold .tile{background:var(--gold);box-shadow:0 6px 16px rgba(214,161,58,.35)}
   .step .tx .n{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;margin-bottom:5px;font-size:.9rem}
   .step .tx h3{color:var(--navy);font-size:1.06rem;margin-bottom:3px}.step .tx p{font-size:.92rem;color:#25343f}
+  .step .tx ul{margin:4px 18px 0 0;font-size:.9rem;color:#25343f}
+  .price{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:12px}
+  .price .p{background:#fff;border:1px solid var(--border);border-radius:14px;padding:12px;text-align:center}
+  .price .p b{display:block;color:var(--accent);font-size:1.4rem}.price .p span{font-size:.85rem;color:var(--muted)}
   .note{background:#fff8e6;border:1px solid #f0d58a;border-radius:16px;padding:14px 16px;margin-top:16px;font-size:.92rem}
   .cta{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:18px;padding:22px;margin-top:22px;text-align:center}
   .cta a{display:inline-block;margin-top:10px;background:linear-gradient(135deg,var(--gold),#c08f2a);color:var(--navy);font-weight:800;text-decoration:none;padding:12px 24px;border-radius:12px}
   .foot{text-align:center;color:var(--muted);font-size:.82rem;padding:22px 0 10px}.foot a{color:var(--navy);font-weight:700;text-decoration:none}
+  @media (max-width:520px){.step{flex-direction:column;text-align:center}.step .tx ul{text-align:right}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="hero">
-    <span class="badge">دليل الاستخدام</span>
+    <span class="badge">عن التطبيق</span>
     <h1>مساعد مدار</h1>
-    <p>أسرتك وعائلتك وعمارتك في مكان واحد — مشتريات مشتركة، تصويت وصندوق، فواتير، وتذكيرات. وكل مجموعة خاصة بأعضائها فقط.</p>
+    <p>أسرتك وعائلتك وعمارتك في مكان واحد: مشتريات مشتركة، ومصروف ومديونيات، ورصيد للأسرة، ومذاكرة أولادك بشرح تفاعلي وتقييم حقيقي — وكل مجموعة خاصة بأعضائها فقط.</p>
+    <span class="new">جديد: المكتبة الدراسية 📚 ومحفظة الأسرة 💳</span>
   </header>
 
   <h2 class="sec">ماذا يقدّم لك؟</h2>
   <div class="why">
-    <div class="c"><div class="e">🛒</div><b>مشتريات بلا تكرار</b><span>من اشترى يظهر اسمه</span></div>
-    <div class="c"><div class="e">🗳️</div><b>تصويت العمارة</b><span>صوت لكل شقة</span></div>
-    <div class="c"><div class="e">💰</div><b>صندوق شفّاف</b><span>دفعات ومصروفات معتمدة</span></div>
-    <div class="c"><div class="e">📁</div><b>فواتيرك وتحاليلك</b><span>محفوظة في أي وقت</span></div>
-    <div class="c"><div class="e">⏰</div><b>تذكيرات</b><span>مواعيد وأدوية وأعياد ميلاد</span></div>
+    <div class="c"><div class="e">📚</div><b>المكتبة الدراسية</b><span>شرح وأسئلة لكل درس</span></div>
+    <div class="c"><div class="e">📈</div><b>مستوى أولادك</b><span>في كل مادة ودرس</span></div>
+    <div class="c"><div class="e">💳</div><b>رصيد الأسرة</b><span>اشحن مرة واشترك في المواد</span></div>
+    <div class="c"><div class="e">🛒</div><b>مشتريات بلا تكرار</b><span>بالصور والفواتير</span></div>
+    <div class="c"><div class="e">📊</div><b>المصروف والمديونيات</b><span>حدّ شهري وأقساط</span></div>
+    <div class="c"><div class="e">🗳️</div><b>العمارة</b><span>تصويت وصندوق شفّاف</span></div>
+    <div class="c"><div class="e">⏰</div><b>تذكيرات وملفات</b><span>أدوية ومواعيد وفواتير</span></div>
     <div class="c"><div class="e">🔒</div><b>خصوصية تامّة</b><span>لا يراها أحد خارج المجموعة</span></div>
   </div>
 
+  <h2 class="sec">المكتبة الدراسية <span class="tag">جديد</span></h2>
+  <p class="lead">مواد صف ابنك كاملة بشرح مدار التفاعلي، وأسئلة لكل درس، وتدريبات على نمط الامتحان، وتقييم يُظهر مستواه الحقيقي.</p>
+  <div class="step gold"><div class="tile">➕</div><div class="tx"><span class="n">١</span><h3>اختر سنته الدراسية وموادّه</h3><p>من صفحة الطالب في «الدراسة» ← «أضف مادة» ← اختر الصف ثم المواد. الدرس الأول من كل مادة مجاني للتجربة.</p></div></div>
+  <div class="step gold"><div class="tile">📖</div><div class="tx"><span class="n">٢</span><h3>«ذاكر» — شرح صفحة بصفحة</h3><p>كل درس مقسّم إلى صفحات ملوّنة برسوم وأمثلة من حياة الطفل، ثم أسئلة تدريب يرى فيها الإجابة الصحيحة وسببها فورًا. وفي النهاية: «نسبة استيعابك يا بطل».</p></div></div>
+  <div class="step gold"><div class="tile">📝</div><div class="tx"><span class="n">٣</span><h3>«اختبر» و«🎯 نمط الامتحان»</h3><p>اختبار لكل درس ووحدة ومادة يُصحَّح تلقائيًا، وتدريبات على نفس صيغة أسئلة كتاب الأداءات والتقييمات — الأقرب للامتحان الحقيقي — مع زر يفتح الكتاب الرسمي من موقع الوزارة.</p></div></div>
+  <div class="step gold"><div class="tile">📈</div><div class="tx"><span class="n">٤</span><h3>مستوى حقيقي في كل مادة</h3><ul>
+    <li>مستوى الدرس = الاختبار 40٪ + نمط الامتحان 60٪ (التدريب لا يدخل في التقييم).</li>
+    <li>مستوى المادة ونسبة الاجتياز تُحسب على المنهج كله — الدرس الذي لم يُختبر = 0.</li>
+    <li>المواد الأقل مستوى تظهر أولًا بعلامة «أولوية للمذاكرة»، والمهارات والأنشطة في الأسفل.</li>
+    <li>تصلكم كل نتيجة إشعارًا فور انتهاء الطفل — لا يتحكّم هو في الإرسال.</li></ul></div></div>
+  <div class="step gold"><div class="tile">🔗</div><div class="tx"><span class="n">٥</span><h3>رابط ابنك المباشر</h3><p>رابط دائم تحفظه على هاتفه أو التابلت: يفتح منه موادّه بمستواها، ويذاكر ويختبر بنفسه بلا حساب، وتصلكم نتائجه. ويمكن إلغاؤه وصنع رابط جديد في أي وقت. أو أرسل له رابط درس بعينه على واتساب.</p></div></div>
+  <div class="price">
+    <div class="p"><b>350 ج</b><span>الصف الثاني — كل المواد للترم</span></div>
+    <div class="p"><b>1000 ج</b><span>الصف الخامس — كل المواد للترم</span></div>
+    <div class="p"><b>1000 ج</b><span>الصف السادس — كل المواد للترم</span></div>
+  </div>
+  <p class="lead" style="margin-top:8px">أو اشترك في المادة التي يحتاجها ابنك فقط، وبعض المواد مجانية 🎁.</p>
+
+  <h2 class="sec">رصيد الأسرة <span class="tag">جديد</span></h2>
+  <div class="step"><div class="tile">💳</div><div class="tx"><span class="n">١</span><h3>اشحن مرة… واشترك متى شئت</h3><p>رب الأسرة يشحن الرصيد (فودافون كاش أو إنستاباي) ويكتب رقم التحويل، ويُضاف المبلغ بعد التأكيد مع إشعار. ثم الأب أو الأم يشتركان في المواد التي يحتاجها الأبناء فيُخصم سعرها من الرصيد فورًا، مع سجلّ لكل حركة ومن قام بها.</p></div></div>
+
   <h2 class="sec">ثلاثة أنواع من المجموعات</h2>
-  <div class="step"><div class="tile">🏠</div><div class="tx"><span class="n">١</span><h3>أسرتي</h3><p>الزوجة والأولاد، باسم أو شعار للأسرة. الأب والأم مشرفان، وأي فرد يضيف ما يحتاجه للمشتريات.</p></div></div>
-  <div class="step"><div class="tile">👨‍👩‍👧‍👦</div><div class="tx"><span class="n">٢</span><h3>عائلتي</h3><p>الإخوة والوالدان، أو الأصدقاء والأقارب، وتُسمّى باسم الأكبر مثل «عائلة رأفت». نفس أقسام الأسرة تمامًا: تطلب الوالدة دواءً فيشتريه أحد أبنائها ويرى الجميع «محمد اشترى هذا».</p></div></div>
-  <div class="step"><div class="tile">🏢</div><div class="tx"><span class="n">٣</span><h3>العمارة</h3><p>كل سكان العقار لتطوير مكان المعيشة: مقترحات، وتصويت، وصندوق صيانة، ومصروفات بفواتيرها.</p></div></div>
+  <div class="step"><div class="tile">🏠</div><div class="tx"><span class="n">١</span><h3>أسرتي</h3><p>الزوجة والأولاد، باسم أو شعار للأسرة. الأب والأم مشرفان. فيها: المشتريات، والاستهلاك الشهري، والمديونيات، والأولويات، والدراسة، والفواتير، والصحة.</p></div></div>
+  <div class="step"><div class="tile">👨‍👩‍👧‍👦</div><div class="tx"><span class="n">٢</span><h3>عائلتي</h3><p>الإخوة والوالدان أو الأقارب، باسم الأكبر مثل «عائلة رأفت». تطلب الوالدة دواءً فيشتريه أحد أبنائها ويرى الجميع «محمد اشترى هذا».</p></div></div>
+  <div class="step"><div class="tile">🏢</div><div class="tx"><span class="n">٣</span><h3>العمارة</h3><p>كل سكان العقار: مقترحات وتصويت بصوت لكل شقة، وصندوق صيانة بدفعات يعتمدها أمين الصندوق، ومصروفات بفواتيرها.</p></div></div>
 
-  <h2 class="sec">ابدأ خطوة بخطوة</h2>
-  <div class="step"><div class="tile">➕</div><div class="tx"><span class="n">١</span><h3>أنشئ مجموعة</h3><p>اضغط «مجموعة جديدة»، واختر النوع والاسم والشعار. في العمارة اكتب رقم وحدتك وهل أنت مالك أم مستأجر.</p></div></div>
-  <div class="step"><div class="tile">🔗</div><div class="tx"><span class="n">٢</span><h3>ادعُ الأفراد برابط</h3><p>من «الأعضاء» ← «ادعُ أفرادًا برابط» وأرسله على واتساب. من يفتحه يُضاف بعد موافقة المشرف.</p></div></div>
-  <div class="step"><div class="tile">🛒</div><div class="tx"><span class="n">٣</span><h3>المشتريات المشتركة</h3><p>أي فرد يضيف طلبًا. من يشتري يضغط «اشتريت» ويكتب السعر، فيبقى الطلب ظاهرًا باسمه ولا يتكرّر الشراء. والأب والأم يريان مصروف الشهر.</p></div></div>
-  <div class="step"><div class="tile">🗳️</div><div class="tx"><span class="n">٤</span><h3>تصويت العمارة</h3><p>اقترح عملًا، فيصوّت القائم على التصويت في كل شقة مرة واحدة. الأغلبية تفوز بعد 3 أيام أو حين تصوّت كل الشقق، والأصوات ظاهرة بالأسماء ومحفوظة في السجلّ.</p></div></div>
-  <div class="step"><div class="tile">💰</div><div class="tx"><span class="n">٥</span><h3>صندوق العمارة</h3><p>ارفع دفعتك بصورة ومبلغ، وأمين الصندوق يعتمدها فتظهر للجميع «تم الاعتماد». المصروفات تُسجَّل بفاتورة ورقم المنفّذ للرجوع إليه.</p></div></div>
-  <div class="step"><div class="tile">🩺</div><div class="tx"><span class="n">٦</span><h3>الفواتير والملف الصحي</h3><p>احفظ فواتير البيت، وتحاليل وأدوية كل فرد. الملف الصحي يراه الأب والأم فقط، حفاظًا على نفسية الأبناء.</p></div></div>
-  <div class="step"><div class="tile">⏰</div><div class="tx"><span class="n">٧</span><h3>التذكيرات</h3><p>مواعيد ومهام وأدوية (مرة أو يومي أو أسبوعي أو شهري)، وتنبيه «اليوم عيد ميلاد…» لمن أضاف تاريخ ميلاده.</p></div></div>
+  <h2 class="sec">بيت منظّم خطوة بخطوة</h2>
+  <div class="step"><div class="tile">🛒</div><div class="tx"><span class="n">١</span><h3>المشتريات المشتركة</h3><p>أي فرد يضيف طلبًا بصورة المنتج أو العيّنة. من يشتري يضغط «اشتريت» ويكتب السعر ويرفق الفاتورة، فلا يتكرّر الشراء. أو اطلب مباشرة من سوق مدار.</p></div></div>
+  <div class="step"><div class="tile">📊</div><div class="tx"><span class="n">٢</span><h3>الاستهلاك الشهري</h3><p>حدّد الحدّ الأدنى والأعلى لمصروف الشهر، وقائمة المشتريات الثابتة كل شهر تختار منها ما نقص وتضيفه بضغطة. وتنبيه عند تجاوز الحدّ.</p></div></div>
+  <div class="step"><div class="tile">🧾</div><div class="tx"><span class="n">٣</span><h3>المديونيات</h3><p>سجّل الدين بمبلغه الكلّي، وكل سداد (مباشر أو طلب مشتريات مربوط به) يُخصم من المتبقّي تلقائيًا مع شريط تقدّم. ولتسجيل أقساط قديمة اختر «تاريخ السداد». والسداد لا يُحسب في مصروف الشهر.</p></div></div>
+  <div class="step"><div class="tile">🎯</div><div class="tx"><span class="n">٤</span><h3>الأولويات والأهداف</h3><p>رتّب احتياجات الأسرة الكبيرة (جهاز، رحلة، تجديد) حسب الأولوية وسعرها، وخطّط لها حتى تتحقّق.</p></div></div>
+  <div class="step"><div class="tile">🩺</div><div class="tx"><span class="n">٥</span><h3>الفواتير والملف الصحي</h3><p>احفظ فواتير البيت، وتحاليل وأدوية كل فرد (يراها الأب والأم فقط). مساحة مجانية 50 ميجا لكل حساب.</p></div></div>
+  <div class="step"><div class="tile">⏰</div><div class="tx"><span class="n">٦</span><h3>التذكيرات</h3><p>مواعيد ومهام وأدوية (مرة أو يومي أو أسبوعي أو شهري)، وتنبيه «اليوم عيد ميلاد…».</p></div></div>
+  <div class="step"><div class="tile">🔗</div><div class="tx"><span class="n">٧</span><h3>ادعُ الأفراد برابط</h3><p>من «الأعضاء» ← «ادعُ أفرادًا برابط» على واتساب؛ من يفتحه ينشئ حسابه في نفس الصفحة ويُضاف بعد موافقة المشرف. والأبناء الصغار تُضاف أسماؤهم بلا حسابات.</p></div></div>
 
-  <div class="note">🔒 <b>الخصوصية:</b> كل مجموعة مغلقة على أعضائها؛ لا يراها أحد خارجها ولا حتى إدارة مدار. وأموال الصندوق تبقى مع أمين الصندوق — التطبيق للتسجيل والشفافية فقط.</div>
+  <div class="note">🔒 <b>الخصوصية:</b> كل مجموعة مغلقة على أعضائها؛ لا يراها أحد خارجها ولا حتى إدارة مدار. أموال صندوق العمارة تبقى مع أمين الصندوق — التطبيق للتسجيل والشفافية فقط. ومحتوى المكتبة الدراسية من إعداد مدار، مرتبط بدروس منهج وزارة التربية والتعليم.</div>
 
-  <div class="cta"><h3>جاهز للبدء؟</h3><p style="color:#cfe0f1;margin-top:6px">أنشئ مجموعتك الأولى وادعُ أسرتك الآن.</p><a href="./assistant/">افتح مساعد مدار</a></div>
+  <div class="cta"><h3>جاهز للبدء؟</h3><p style="color:#cfe0f1;margin-top:6px">أنشئ مجموعة أسرتك، وأضف مواد ابنك، وجرّب الدرس الأول مجانًا.</p><a href="./assistant/">افتح مساعد مدار</a></div>
   <p class="foot">مدار — <a href="./">madar.app</a></p>
 </div>
 </body>
