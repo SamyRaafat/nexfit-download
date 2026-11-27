@@ -115936,7 +115936,7 @@ q=A.b7l(new A.aE(d,new A.aMD(),s))
 s=A.a([],t.a0)
 for(p=d.length,o=0;o<d.length;d.length===p||(0,A.O)(d),++o){n=d[o]
 m=J.a_(n)
-if(m.h(n,"avg")!=null)s.push(A.b_(m.h(n,"avg")))}l=s.length===0?e:B.c.ao(B.b.lG(s,new A.aME())/s.length)
+if(m.h(n,"avg")!=null)s.push(A.b_(m.h(n,"avg")))}l=s.length===0?e:B.c.ao(B.b.lG(s,new A.aME())/d.length)
 k=new A.aE(s,new A.aMF(),t.FM).gC(0)
 p=t.p
 m=A.a([B.VR,B.L9,B.TE],p)
@@ -115946,7 +115946,7 @@ if(f.a.d&&d.length!==0){j=A.e3(B.v,B.iS,e)
 m.push(new A.ab(B.eC,A.fk(B.uF,A.A("\u0631\u0627\u0628\u0637 "+A.e(J.H(f.a.c,"name"))+" \u0627\u0644\u0645\u0628\u0627\u0634\u0631 \u0644\u0645\u0648\u0627\u062f\u0651\u0647",e,e,e,e,e,e,e,e),new A.aMG(f,a),j),e))}if(f.d==null)m.push(B.XG)
 if(f.d!=null&&d.length===0)m.push(B.abI)
 if(l!=null){j=A.cx(A.h5(B.a4,A.a([A.cx(A.aZ2(B.aX,A.a5X(l),e,e,e,e,e,7,l/100,e),64,64),A.A(A.e(l)+"\u066a",e,e,e,e,A.d6(e,e,A.a5X(l),e,e,e,e,e,e,e,e,e,e,e,B.bg,e,e,!0,e,e,e,e,e,e,e,e),e,e,e)],p),B.p,B.bA,e),64,64)
-i=A.a([B.amk,A.A("\u0627\u062c\u062a\u0627\u0632 "+k+" \u0645\u0646 "+s.length+" \u0645\u0627\u062f\u0629 (75\u066a \u0641\u0623\u0643\u062b\u0631)",e,e,e,e,B.m0,e,e,e)],p)
+i=A.a([B.amk,A.A("\u0627\u062c\u062a\u0627\u0632 "+k+" \u0645\u0646 "+d.length+" \u0645\u0627\u062f\u0629 (75\u066a \u0641\u0623\u0643\u062b\u0631)",e,e,e,e,B.m0,e,e,e)],p)
 s=s.length
 h=d.length
 if(s<h)i.push(A.A(""+(h-s)+" \u0645\u0627\u062f\u0629 \u0644\u0645 \u062a\u064f\u062e\u062a\u0628\u0631 \u0628\u0639\u062f",e,e,e,e,B.br,e,e,e))
@@ -119567,7 +119567,7 @@ return A.h3(o,B.mZ,p,r,r)},
 avB(a,b){var s,r,q,p,o,n,m,l,k=null,j=A.Oo(b.h(0,"subjects")),i=A.a8(j).i("aE<1>"),h=A.b7D(new A.aE(j,new A.aRC(),i)),g=A.b7D(new A.aE(j,new A.aRD(),i))
 i=A.a([],t.a0)
 for(s=j.length,r=0;r<j.length;j.length===s||(0,A.O)(j),++r){q=j[r]
-if(q.h(0,"level")!=null)i.push(A.b_(q.h(0,"level")))}p=i.length===0?k:B.c.ao(B.b.lG(i,new A.aRE())/i.length)
+if(q.h(0,"level")!=null)i.push(A.b_(q.h(0,"level")))}p=i.length===0?k:B.c.ao(B.b.lG(i,new A.aRE())/j.length)
 i=A.A("\u0623\u0647\u0644\u064b\u0627 \u064a\u0627 "+A.e(b.h(0,"student"))+" \ud83d\udc4b",k,k,k,k,B.ale,k,k,k)
 s=p==null
 o=s?0:p
